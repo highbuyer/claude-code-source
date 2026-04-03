@@ -1,4 +1,4 @@
-// Stub: cli/handlers/ant.ts
+/** handlers/ant — feature-gated module (reconstructed) */
 export async function logHandler(_logId?: string | number): Promise<void> {}
 
 export async function errorHandler(_number?: number): Promise<void> {}

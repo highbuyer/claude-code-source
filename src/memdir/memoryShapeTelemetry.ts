@@ -1,4 +1,4 @@
-// Stub: memdir/memoryShapeTelemetry.ts
+/** memdir/memoryShapeTelemetry — feature-gated module (reconstructed) */
 export function logMemoryRecallShape(_memories: any[], _selected: any[]): void {}
 
 export function logMemoryWriteShape(

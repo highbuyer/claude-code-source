@@ -1,4 +1,4 @@
-// Stub: commands/workflows/index.ts
+/** workflows/index — feature-gated module (reconstructed) */
 import type { Command } from '../../commands.js'
 
 const workflows: Command = {

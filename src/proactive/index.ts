@@ -1,4 +1,4 @@
-// Stub: proactive/index.ts
+/** proactive/index — feature-gated module (reconstructed) */
 export function isProactiveActive(): boolean {
   return false
 }

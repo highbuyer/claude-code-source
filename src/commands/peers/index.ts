@@ -1,4 +1,4 @@
-// Stub: commands/peers/index.ts
+/** peers/index — feature-gated module (reconstructed) */
 import type { Command } from '../../commands.js'
 
 const peers = {

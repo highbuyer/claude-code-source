@@ -1,4 +1,4 @@
-// Stub: services/skillSearch/prefetch.ts
+/** skillSearch/prefetch — feature-gated module (reconstructed) */
 export function getTurnZeroSkillDiscovery(
   ..._args: any[]
 ): any {

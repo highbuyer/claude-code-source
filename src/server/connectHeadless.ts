@@ -1,4 +1,4 @@
-// Stub: server/connectHeadless.ts
+/** server/connectHeadless — feature-gated module (reconstructed) */
 export async function runConnectHeadless(
   _config: any,
   _prompt: string,

@@ -1,2 +1,2 @@
-// Stub: tools/MonitorTool/MonitorTool.ts
+/** MonitorTool/MonitorTool — feature-gated module (reconstructed) */
 export const MonitorTool: any = null

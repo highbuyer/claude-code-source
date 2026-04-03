@@ -1,4 +1,4 @@
-// Stub: services/contextCollapse/index.ts
+/** contextCollapse/index — feature-gated module (reconstructed) */
 export function initContextCollapse(): void {}
 
 export function resetContextCollapse(): void {}

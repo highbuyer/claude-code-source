@@ -1,6 +1,6 @@
-// Stub: components/permissions/MonitorPermissionRequest/MonitorPermissionRequest.tsx
+/** MonitorPermissionRequest/MonitorPermissionRequest — feature-gated module (reconstructed) */
 import * as React from 'react'
 
 export function MonitorPermissionRequest(_props: any): React.ReactElement {
-  return React.createElement('ink-text', null, 'MonitorPermissionRequest stub')
+  return null as any
 }

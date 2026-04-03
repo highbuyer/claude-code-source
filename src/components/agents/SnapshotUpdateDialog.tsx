@@ -1,4 +1,4 @@
-// Stub: components/agents/SnapshotUpdateDialog.tsx
+/** agents/SnapshotUpdateDialog — feature-gated module (reconstructed) */
 import * as React from 'react'
 
 export function SnapshotUpdateDialog(_props: {
@@ -8,7 +8,7 @@ export function SnapshotUpdateDialog(_props: {
   onComplete: (choice: 'merge' | 'keep' | 'replace') => void
   onCancel: () => void
 }): React.ReactElement {
-  return React.createElement('ink-text', null, 'SnapshotUpdateDialog stub')
+  return null as any
 }
 
 export function buildMergePrompt(_agentType: string, _scope: any): string {

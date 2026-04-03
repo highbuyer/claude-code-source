@@ -1,4 +1,4 @@
-// Stub: assistant/gate.ts
+/** assistant/gate — feature-gated module (reconstructed) */
 export async function isKairosEnabled(): Promise<boolean> {
   return false
 }

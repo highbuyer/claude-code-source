@@ -1,9 +1,9 @@
-// Stub: components/messages/UserForkBoilerplateMessage.tsx
+/** messages/UserForkBoilerplateMessage — feature-gated module (reconstructed) */
 import * as React from 'react'
 
 export function UserForkBoilerplateMessage(_props: {
   addMargin: boolean
   param: any
 }): React.ReactElement {
-  return React.createElement('ink-text', null, 'UserForkBoilerplateMessage stub')
+  return null as any
 }

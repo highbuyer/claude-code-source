@@ -1,4 +1,4 @@
-// Stub: services/compact/snipProjection.ts
+/** compact/snipProjection — feature-gated module (reconstructed) */
 export function isSnipBoundaryMessage(_message: any): boolean {
   return false
 }

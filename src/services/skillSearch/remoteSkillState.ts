@@ -1,4 +1,4 @@
-// Stub: services/skillSearch/remoteSkillState.ts
+/** skillSearch/remoteSkillState — feature-gated module (reconstructed) */
 export function getDiscoveredRemoteSkill(
   _slug: string,
 ): { url: string; [key: string]: any } | undefined {

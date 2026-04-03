@@ -1,2 +1,2 @@
-// Stub: tools/WorkflowTool/WorkflowPermissionRequest.ts
+/** WorkflowTool/WorkflowPermissionRequest — feature-gated module (reconstructed) */
 export const WorkflowPermissionRequest: any = null

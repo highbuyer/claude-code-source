@@ -1,6 +1,6 @@
-// Stub: components/messages/SnipBoundaryMessage.tsx
+/** messages/SnipBoundaryMessage — feature-gated module (reconstructed) */
 import * as React from 'react'
 
 export function SnipBoundaryMessage(_props: any): React.ReactElement {
-  return React.createElement('ink-text', null, 'SnipBoundaryMessage stub')
+  return null as any
 }

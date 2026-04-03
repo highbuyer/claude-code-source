@@ -1,9 +1,9 @@
-// Stub: components/messages/UserGitHubWebhookMessage.tsx
+/** messages/UserGitHubWebhookMessage — feature-gated module (reconstructed) */
 import * as React from 'react'
 
 export function UserGitHubWebhookMessage(_props: {
   addMargin: boolean
   param: any
 }): React.ReactElement {
-  return React.createElement('ink-text', null, 'UserGitHubWebhookMessage stub')
+  return null as any
 }

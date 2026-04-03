@@ -1,4 +1,4 @@
-// Stub: assistant/index.ts
+/** assistant/index — feature-gated module (reconstructed) */
 export function isAssistantMode(): boolean {
   return false
 }

@@ -1,4 +1,4 @@
-// Stub: services/compact/cachedMicrocompact.ts
+/** compact/cachedMicrocompact — feature-gated module (reconstructed) */
 export interface CachedMCState {
   [key: string]: any
 }

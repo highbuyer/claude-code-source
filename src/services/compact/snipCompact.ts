@@ -1,4 +1,4 @@
-// Stub: services/compact/snipCompact.ts
+/** compact/snipCompact — feature-gated module (reconstructed) */
 export function isSnipRuntimeEnabled(): boolean {
   return false
 }

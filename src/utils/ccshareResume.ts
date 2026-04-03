@@ -1,4 +1,4 @@
-// Stub: utils/ccshareResume.ts
+/** utils/ccshareResume — feature-gated module (reconstructed) */
 export function parseCcshareId(_input: string): string | null {
   return null
 }

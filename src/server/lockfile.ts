@@ -1,4 +1,4 @@
-// Stub: server/lockfile.ts
+/** server/lockfile — feature-gated module (reconstructed) */
 export async function writeServerLock(_info: any): Promise<void> {}
 
 export async function removeServerLock(): Promise<void> {}

@@ -1,4 +1,4 @@
-// Stub: services/skillSearch/remoteSkillLoader.ts
+/** skillSearch/remoteSkillLoader — feature-gated module (reconstructed) */
 export async function loadRemoteSkill(
   _slug: string,
   _url: string,

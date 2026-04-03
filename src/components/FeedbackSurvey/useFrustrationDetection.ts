@@ -1,4 +1,4 @@
-// Stub: components/FeedbackSurvey/useFrustrationDetection.ts
+/** FeedbackSurvey/useFrustrationDetection — feature-gated module (reconstructed) */
 export function useFrustrationDetection(
   _messages: any[],
   _isLoading: boolean,

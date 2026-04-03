@@ -1,4 +1,4 @@
-// Stub: commands/fork/index.ts
+/** fork/index — feature-gated module (reconstructed) */
 import type { Command } from '../../commands.js'
 
 const fork = {

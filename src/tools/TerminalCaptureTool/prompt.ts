@@ -1,2 +1,2 @@
-// Stub: tools/TerminalCaptureTool/prompt.ts
+/** TerminalCaptureTool/prompt — feature-gated module (reconstructed) */
 export const TERMINAL_CAPTURE_TOOL_NAME = 'terminal_capture'

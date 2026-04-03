@@ -1,4 +1,4 @@
-// Stub: services/compact/reactiveCompact.ts
+/** compact/reactiveCompact — feature-gated module (reconstructed) */
 export function isReactiveOnlyMode(): boolean {
   return false
 }

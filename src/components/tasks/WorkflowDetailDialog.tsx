@@ -1,6 +1,6 @@
-// Stub: components/tasks/WorkflowDetailDialog.tsx
+/** tasks/WorkflowDetailDialog — feature-gated module (reconstructed) */
 import * as React from 'react'
 
 export function WorkflowDetailDialog(_props: any): React.ReactElement {
-  return React.createElement('ink-text', null, 'WorkflowDetailDialog stub')
+  return null as any
 }

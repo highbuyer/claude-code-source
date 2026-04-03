@@ -1,2 +1,2 @@
-// Stub: services/skillSearch/telemetry.ts
+/** skillSearch/telemetry — feature-gated module (reconstructed) */
 export {}

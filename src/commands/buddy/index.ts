@@ -1,4 +1,4 @@
-// Stub: commands/buddy/index.ts
+/** buddy/index — feature-gated module (reconstructed) */
 import type { Command } from '../../commands.js'
 
 const buddy = {

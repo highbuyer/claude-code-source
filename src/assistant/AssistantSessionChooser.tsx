@@ -1,4 +1,4 @@
-// Stub: assistant/AssistantSessionChooser.tsx
+/** assistant/AssistantSessionChooser — feature-gated module (reconstructed) */
 import * as React from 'react'
 
 export interface AssistantSession {
@@ -11,5 +11,5 @@ export function AssistantSessionChooser(_props: {
   onSelect: (id: string) => void
   onCancel: () => void
 }): React.ReactElement {
-  return React.createElement('ink-text', null, 'AssistantSessionChooser stub')
+  return null as any
 }

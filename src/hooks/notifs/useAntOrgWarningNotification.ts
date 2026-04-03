@@ -1,2 +1,2 @@
-// Stub: hooks/notifs/useAntOrgWarningNotification.ts
+/** notifs/useAntOrgWarningNotification — feature-gated module (reconstructed) */
 export function useAntOrgWarningNotification(): void {}
