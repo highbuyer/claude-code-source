@@ -74,7 +74,7 @@ export function execSyncWithDefaults_DEPRECATED(
       maxBuffer: 1_000_000,
       timeout: finalTimeout,
       cwd: getCwd(),
-      stdio: stdio as any,
+      stdio,
       shell: true, // execSync typically runs shell commands
       reject: false, // Don't throw on non-zero exit codes
       input,
@@ -82,7 +82,7 @@ export function execSyncWithDefaults_DEPRECATED(
     if (!result.stdout) {
       return null
     }
-    return (result.stdout as string).trim() || null
+    return result.stdout.trim() || null
   } catch {
     return null
   }

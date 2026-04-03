@@ -9,7 +9,7 @@ type Props = {
   serverName: string;
   onDone(): void;
 };
-export function MCPServerApprovalDialog(t0: Props) {
+export function MCPServerApprovalDialog(t0) {
   const $ = _c(13);
   const {
     serverName,

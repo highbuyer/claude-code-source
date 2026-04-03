@@ -24,7 +24,7 @@ type Props = {
   onSaveAndEdit: () => void;
   error?: string | null;
 };
-export function ConfirmStep(t0: Props) {
+export function ConfirmStep(t0) {
   const $ = _c(88);
   const {
     tools,
@@ -36,7 +36,7 @@ export function ConfirmStep(t0: Props) {
   const {
     goBack,
     wizardData
-  } = useWizard<AgentWizardData>();
+  } = useWizard();
   let t1;
   if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
     t1 = {

@@ -12,7 +12,7 @@ type Props = {
   onCancel?: () => void;
   showWorktree: boolean;
 };
-export function ExitFlow(t0: Props) {
+export function ExitFlow(t0) {
   const $ = _c(5);
   const {
     showWorktree,

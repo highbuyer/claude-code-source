@@ -20,7 +20,7 @@ type Props = {
   onDone(): void;
   commands?: Command[];
 };
-export function TrustDialog(t0: Props) {
+export function TrustDialog(t0) {
   const $ = _c(33);
   const {
     onDone,

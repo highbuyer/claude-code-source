@@ -18,7 +18,7 @@ type Props = {
   minContentHeight?: number;
   onFinalResponse: (value: 'submit' | 'cancel') => void;
 };
-export function SubmitQuestionsView(t0: Props) {
+export function SubmitQuestionsView(t0) {
   const $ = _c(27);
   const {
     questions,

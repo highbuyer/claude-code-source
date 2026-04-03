@@ -7,7 +7,7 @@ type Props = {
   message: NormalizedMessage;
   isTranscriptMode: boolean;
 };
-export function MessageTimestamp(t0: Props) {
+export function MessageTimestamp(t0) {
   const $ = _c(10);
   const {
     message,

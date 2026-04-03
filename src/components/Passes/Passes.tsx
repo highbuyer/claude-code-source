@@ -64,7 +64,7 @@ export function Passes({
 
         // Store the referral link if available
         if (eligibilityData.referral_code_details?.referral_link) {
-          setReferralLink(eligibilityData.referral_code_details.referral_link as string);
+          setReferralLink(eligibilityData.referral_code_details.referral_link);
         }
 
         // Store referrer reward info for v1 campaign messaging
@@ -76,7 +76,7 @@ export function Passes({
         // Fetch redemptions data
         let redemptionsData: ReferralRedemptionsResponse;
         try {
-          redemptionsData = await fetchReferralRedemptions(campaign as string);
+          redemptionsData = await fetchReferralRedemptions(campaign);
         } catch (err_0) {
           logError(err_0 as Error);
           setIsAvailable(false);
@@ -86,7 +86,7 @@ export function Passes({
 
         // Build pass statuses array
         const redemptions = redemptionsData.redemptions || [];
-        const maxRedemptions = (redemptionsData as any).limit || 3;
+        const maxRedemptions = redemptionsData.limit || 3;
         const statuses: PassStatus[] = [];
         for (let i = 0; i < maxRedemptions; i++) {
           const redemption = redemptions[i];

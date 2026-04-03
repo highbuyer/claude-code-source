@@ -6,7 +6,7 @@ import { Box, Text } from '../../../ink.js';
 type Props = {
   plan: string;
 };
-export function RejectedPlanMessage(t0: Props) {
+export function RejectedPlanMessage(t0) {
   const $ = _c(3);
   const {
     plan

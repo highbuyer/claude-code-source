@@ -470,7 +470,7 @@ type Props = {
   initialTab?: TabType;
   onRetryDenials?: (commands: string[]) => void;
 };
-export function PermissionRuleList(t0: Props) {
+export function PermissionRuleList(t0) {
   const $ = _c(113);
   const {
     onExit,
@@ -519,7 +519,7 @@ export function PermissionRuleList(t0: Props) {
     t4 = $[3];
   }
   const handleDenialStateChange = t4;
-  const [selectedRule, setSelectedRule] = useState<any>();
+  const [selectedRule, setSelectedRule] = useState();
   const [lastFocusedRuleKey, setLastFocusedRuleKey] = useState();
   const [addingRuleToTab, setAddingRuleToTab] = useState(null);
   const [validatedRule, setValidatedRule] = useState(null);
@@ -795,7 +795,7 @@ export function PermissionRuleList(t0: Props) {
   if ($[30] !== changes || $[31] !== onExit || $[32] !== onRetryDenials) {
     t18 = () => {
       const s_1 = denialStateRef.current;
-      const denialsFor = (set: any) => Array.from(set).map((idx: any) => s_1.denials[idx]).filter(_temp2);
+      const denialsFor = set => Array.from(set).map(idx => s_1.denials[idx]).filter(_temp2);
       const retryDenials = denialsFor(s_1.retry);
       if (retryDenials.length > 0) {
         const commands = retryDenials.map(_temp3);
@@ -846,7 +846,7 @@ export function PermissionRuleList(t0: Props) {
       const {
         options: options_0
       } = getRulesOptions(selectedRule.ruleBehavior as TabType);
-      const selectedKey = jsonStringify(selectedRule as any);
+      const selectedKey = jsonStringify(selectedRule);
       const ruleKeys = options_0.filter(_temp5).map(_temp6);
       const currentIndex = ruleKeys.indexOf(selectedKey);
       let nextFocusKey;
@@ -951,7 +951,7 @@ export function PermissionRuleList(t0: Props) {
     let t22;
     if ($[56] !== setAppState || $[57] !== toolPermissionContext) {
       t22 = (path_0, remember) => {
-        const destination = (remember ? "localSettings" : "session") as PermissionUpdateDestination;
+        const destination = remember ? "localSettings" : "session";
         const permissionUpdate = {
           type: "addDirectories" as const,
           directories: [path_0],

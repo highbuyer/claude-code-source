@@ -14,7 +14,7 @@ type Props = {
   onCancel: () => void;
   emptyMessage?: string;
 };
-export function Commands(t0: Props) {
+export function Commands(t0) {
   const $ = _c(14);
   const {
     commands,

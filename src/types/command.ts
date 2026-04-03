@@ -1,6 +1,5 @@
 import type { ContentBlockParam } from '@anthropic-ai/sdk/resources/index.mjs'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import type { CanUseToolFn } from '../hooks/useCanUseTool.js'
 import type { CompactionResult } from '../services/compact/compact.js'
 import type { ScopedMcpServerConfig } from '../services/mcp/types.js'

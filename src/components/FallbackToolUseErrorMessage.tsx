@@ -13,7 +13,7 @@ type Props = {
   result: ToolResultBlockParam['content'];
   verbose: boolean;
 };
-export function FallbackToolUseErrorMessage(t0: Props) {
+export function FallbackToolUseErrorMessage(t0) {
   const $ = _c(25);
   const {
     result,

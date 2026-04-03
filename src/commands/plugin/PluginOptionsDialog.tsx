@@ -52,7 +52,7 @@ type Props = {
   onSave: (config: PluginOptionValues) => void;
   onCancel: () => void;
 };
-export function PluginOptionsDialog(t0: Props) {
+export function PluginOptionsDialog(t0) {
   const $ = _c(70);
   const {
     title,

@@ -102,7 +102,7 @@ function SedEditPermissionRequestInner(t0) {
   const {
     oldContent,
     fileExists
-  } = use(contentPromise) as any;
+  } = use(contentPromise);
   let t1;
   if ($[4] !== oldContent || $[5] !== sedInfo) {
     t1 = applySedSubstitution(oldContent, sedInfo);

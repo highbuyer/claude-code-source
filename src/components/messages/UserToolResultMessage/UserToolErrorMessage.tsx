@@ -20,7 +20,7 @@ type Props = {
   verbose: boolean;
   isTranscriptMode?: boolean;
 };
-export function UserToolErrorMessage(t0: Props) {
+export function UserToolErrorMessage(t0) {
   const $ = _c(14);
   const {
     progressMessagesForMessage,

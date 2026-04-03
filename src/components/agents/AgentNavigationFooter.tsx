@@ -5,7 +5,7 @@ import { Box, Text } from '../../ink.js';
 type Props = {
   instructions?: string;
 };
-export function AgentNavigationFooter(t0: Props) {
+export function AgentNavigationFooter(t0) {
   const $ = _c(2);
   const {
     instructions: t1

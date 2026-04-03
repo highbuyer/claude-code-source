@@ -352,7 +352,7 @@ export function handleServerControlRequest(
           response: {
             subtype: 'error',
             request_id: request.request_id,
-            error: (verdict as { ok: false; error: string }).error,
+            error: verdict.error,
           },
         }
       }

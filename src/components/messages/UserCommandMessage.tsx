@@ -9,7 +9,7 @@ type Props = {
   addMargin: boolean;
   param: TextBlockParam;
 };
-export function UserCommandMessage(t0: Props) {
+export function UserCommandMessage(t0) {
   const $ = _c(19);
   const {
     addMargin,

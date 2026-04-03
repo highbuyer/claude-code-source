@@ -1,6 +1,5 @@
 import axios, { type AxiosError } from 'axios'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import { getOauthConfig } from '../../constants/oauth.js'
 import type { Entry, TranscriptMessage } from '../../types/logs.js'
 import { logForDebugging } from '../../utils/debug.js'

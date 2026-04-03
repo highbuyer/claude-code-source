@@ -99,7 +99,7 @@ function PropertyValue(t0) {
   }
   return value;
 }
-export function Status(t0: Props) {
+export function Status(t0) {
   const $ = _c(20);
   const {
     context,
@@ -206,7 +206,7 @@ function Diagnostics(t0) {
   const {
     promise
   } = t0;
-  const diagnostics = use(promise) as any[];
+  const diagnostics = use(promise);
   if (diagnostics.length === 0) {
     return null;
   }

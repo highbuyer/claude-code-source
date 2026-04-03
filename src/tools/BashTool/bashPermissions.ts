@@ -1781,10 +1781,9 @@ export async function bashToolHasPermission(
         astResult.commands,
       )
       if (earlyExit !== null) return earlyExit
-      const semFailed = sem as { ok: false; reason: string }
       const decisionReason: PermissionDecisionReason = {
         type: 'other' as const,
-        reason: semFailed.reason,
+        reason: sem.reason,
       }
       return {
         behavior: 'ask',
@@ -1815,10 +1814,9 @@ export async function bashToolHasPermission(
     )
     const parseResult = tryParseShellCommand(input.command)
     if (!parseResult.success) {
-      const parseFailed = parseResult as { success: false; error: string }
       const decisionReason = {
         type: 'other' as const,
-        reason: `Command contains malformed syntax that cannot be parsed: ${parseFailed.error}`,
+        reason: `Command contains malformed syntax that cannot be parsed: ${parseResult.error}`,
       }
       return {
         behavior: 'ask',

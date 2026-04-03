@@ -18,7 +18,7 @@ type Props = {
     display?: CommandResultDisplay;
   }) => void;
 };
-export function MCPSettings(t0: Props) {
+export function MCPSettings(t0) {
   const $ = _c(66);
   const {
     onComplete

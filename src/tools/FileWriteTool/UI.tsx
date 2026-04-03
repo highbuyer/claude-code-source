@@ -268,8 +268,7 @@ function WriteRejectionDiff(t0) {
   }
   return t5;
 }
-type WriteRejectionData = { type: 'create' } | { type: 'error' } | { type: 'update'; oldContent: string; patch: StructuredPatchHunk[] };
-function WriteRejectionBody(t0: { promise: Promise<WriteRejectionData>; filePath: string; firstLine: string | null; createFallback: React.ReactNode; style?: 'condensed'; verbose: boolean }) {
+function WriteRejectionBody(t0) {
   const $ = _c(8);
   const {
     promise,

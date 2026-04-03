@@ -147,7 +147,7 @@ type TeammateMessageContentProps = {
   summary?: string;
   isTranscriptMode?: boolean;
 };
-export function TeammateMessageContent(t0: TeammateMessageContentProps) {
+export function TeammateMessageContent(t0) {
   const $ = _c(14);
   const {
     displayName,

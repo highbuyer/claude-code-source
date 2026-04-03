@@ -22,7 +22,7 @@ type Props = {
   onBack?: () => void;
   onForeground?: () => void;
 };
-export function InProcessTeammateDetailDialog(t0: Props) {
+export function InProcessTeammateDetailDialog(t0) {
   const $ = _c(63);
   const {
     teammate,

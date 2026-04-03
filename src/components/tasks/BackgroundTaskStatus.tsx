@@ -22,7 +22,7 @@ type Props = {
   isLeaderIdle?: boolean;
   onOpenDialog?: (taskId?: string) => void;
 };
-export function BackgroundTaskStatus(t0: Props) {
+export function BackgroundTaskStatus(t0) {
   const $ = _c(48);
   const {
     tasksSelected,

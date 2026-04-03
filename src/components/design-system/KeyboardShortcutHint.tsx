@@ -35,7 +35,7 @@ type Props = {
  *   </Byline>
  * </Text>
  */
-export function KeyboardShortcutHint(t0: Props) {
+export function KeyboardShortcutHint(t0) {
   const $ = _c(9);
   const {
     shortcut,

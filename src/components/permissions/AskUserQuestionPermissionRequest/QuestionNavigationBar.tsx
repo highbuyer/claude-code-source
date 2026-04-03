@@ -12,7 +12,7 @@ type Props = {
   answers: Record<string, string>;
   hideSubmitTab?: boolean;
 };
-export function QuestionNavigationBar(t0: Props) {
+export function QuestionNavigationBar(t0) {
   const $ = _c(39);
   const {
     questions,

@@ -20,7 +20,7 @@ const ERROR_RED = {
   g: 43,
   b: 63
 };
-export function GlimmerMessage(t0: Props) {
+export function GlimmerMessage(t0) {
   const $ = _c(75);
   const {
     message,

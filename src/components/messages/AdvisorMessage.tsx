@@ -17,7 +17,7 @@ type Props = {
   verbose: boolean;
   advisorModel?: string;
 };
-export function AdvisorMessage(t0: Props) {
+export function AdvisorMessage(t0) {
   const $ = _c(30);
   const {
     block,

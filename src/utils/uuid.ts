@@ -1,6 +1,4 @@
-import { randomBytes } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import { randomBytes, type UUID } from 'crypto'
 import type { AgentId } from 'src/types/ids.js'
 
 const uuidRegex =

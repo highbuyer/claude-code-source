@@ -22,7 +22,7 @@ type Props = {
  * Uses StructuredDiff for word-level diffing and syntax highlighting.
  * No scrolling - renders all lines (max 400 due to parsing limits).
  */
-export function DiffDetailView(t0: Props) {
+export function DiffDetailView(t0) {
   const $ = _c(53);
   const {
     filePath,

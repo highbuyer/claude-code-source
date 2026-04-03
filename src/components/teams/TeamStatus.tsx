@@ -11,7 +11,7 @@ type Props = {
  * Footer status indicator showing teammate count
  * Similar to BackgroundTaskStatus but for teammates
  */
-export function TeamStatus(t0: Props) {
+export function TeamStatus(t0) {
   const $ = _c(14);
   const {
     teamsSelected,

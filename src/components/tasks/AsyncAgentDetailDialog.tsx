@@ -22,7 +22,7 @@ type Props = {
   onKillAgent?: () => void;
   onBack?: () => void;
 };
-export function AsyncAgentDetailDialog(t0: Props) {
+export function AsyncAgentDetailDialog(t0) {
   const $ = _c(54);
   const {
     agent,

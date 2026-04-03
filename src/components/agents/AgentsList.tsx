@@ -19,7 +19,7 @@ type Props = {
   onCreateNew?: () => void;
   changes?: string[];
 };
-export function AgentsList(t0: Props) {
+export function AgentsList(t0) {
   const $ = _c(96);
   const {
     source,

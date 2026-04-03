@@ -17,7 +17,7 @@ type Props = {
   onDone: (selection: EffortCalloutSelection) => void;
 };
 const AUTO_DISMISS_MS = 30_000;
-export function EffortCallout(t0: Props) {
+export function EffortCallout(t0) {
   const $ = _c(18);
   const {
     model,

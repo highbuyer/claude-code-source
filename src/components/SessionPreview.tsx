@@ -1,6 +1,5 @@
 import { c as _c } from "react/compiler-runtime";
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string;
+import type { UUID } from 'crypto';
 import React, { useCallback } from 'react';
 import { Box, Text } from '../ink.js';
 import { useKeybinding } from '../keybindings/useKeybinding.js';
@@ -18,7 +17,7 @@ type Props = {
   onExit: () => void;
   onSelect: (log: LogOption) => void;
 };
-export function SessionPreview(t0: Props) {
+export function SessionPreview(t0) {
   const $ = _c(33);
   const {
     log,

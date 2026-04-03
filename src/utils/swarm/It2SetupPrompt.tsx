@@ -13,7 +13,7 @@ type Props = {
   onDone: (result: 'installed' | 'use-tmux' | 'cancelled') => void;
   tmuxAvailable: boolean;
 };
-export function It2SetupPrompt(t0: Props) {
+export function It2SetupPrompt(t0) {
   const $ = _c(44);
   const {
     onDone,

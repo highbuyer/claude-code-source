@@ -3,9 +3,7 @@
  * This module has heavier dependencies and should be lazy-loaded when possible.
  */
 import { feature } from 'bun:bundle'
-import { randomUUID } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import { randomUUID, type UUID } from 'crypto'
 import {
   getLastMainRequestId,
   getOriginalCwd,

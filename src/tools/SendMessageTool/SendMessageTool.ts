@@ -768,7 +768,7 @@ export const SendMessageTool: Tool<InputSchema, SendMessageToolOutput> =
               success: result.ok,
               message: result.ok
                 ? `“${preview}” → ${input.to}`
-                : `Failed to send to ${input.to}: ${(result as any).error ?? 'unknown'}`,
+                : `Failed to send to ${input.to}: ${result.error ?? 'unknown'}`,
             },
           }
         }

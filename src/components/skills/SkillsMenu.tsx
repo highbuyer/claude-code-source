@@ -44,7 +44,7 @@ function getSourceSubtitle(source: SkillSource, skills: SkillCommand[]): string 
   const hasCommandsSkills = skills.some(s => s.loadedFrom === 'commands_DEPRECATED');
   return hasCommandsSkills ? `${skillsPath}, ${getDisplayPath(getSkillsPath(source, 'commands'))}` : skillsPath;
 }
-export function SkillsMenu(t0: Props) {
+export function SkillsMenu(t0) {
   const $ = _c(35);
   const {
     onExit,
@@ -76,7 +76,7 @@ export function SkillsMenu(t0: Props) {
         groups[source].push(skill);
       }
     }
-    for (const group of Object.values(groups) as any[]) {
+    for (const group of Object.values(groups)) {
       group.sort(_temp2);
     }
     $[2] = skills;

@@ -267,7 +267,7 @@ export function computeUnseenDivider(messages: readonly Message[], dividerIndex:
  * (alt buffer + mouse tracking + height constraint) lives at REPL's root
  * so nothing can accidentally render outside it.
  */
-export function FullscreenLayout(t0: Props) {
+export function FullscreenLayout(t0) {
   const $ = _c(47);
   const {
     scrollable,

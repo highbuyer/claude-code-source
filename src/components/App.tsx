@@ -16,7 +16,7 @@ type Props = {
  * Top-level wrapper for interactive sessions.
  * Provides FPS metrics, stats context, and app state to the component tree.
  */
-export function App(t0: Props) {
+export function App(t0) {
   const $ = _c(9);
   const {
     getFpsMetrics,

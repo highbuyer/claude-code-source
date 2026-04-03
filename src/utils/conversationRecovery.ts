@@ -1,6 +1,5 @@
 import { feature } from 'bun:bundle'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import { relative } from 'path'
 import { getCwd } from 'src/utils/cwd.js'
 import { addInvokedSkill } from '../bootstrap/state.js'

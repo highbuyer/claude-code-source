@@ -27,7 +27,7 @@ const STEPS: {
   key: 'checking_out',
   label: 'Checking out branch'
 }];
-export function TeleportProgress(t0: Props) {
+export function TeleportProgress(t0) {
   const $ = _c(16);
   const {
     currentStep,

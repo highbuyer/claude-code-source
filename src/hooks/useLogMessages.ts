@@ -1,5 +1,4 @@
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import { useEffect, useRef } from 'react'
 import { useAppState } from '../state/AppState.js'
 import type { Message } from '../types/message.js'

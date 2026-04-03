@@ -7,7 +7,7 @@ type Props = {
   getFpsMetrics: FpsMetricsGetter;
   children: React.ReactNode;
 };
-export function FpsMetricsProvider(t0: Props) {
+export function FpsMetricsProvider(t0) {
   const $ = _c(3);
   const {
     getFpsMetrics,

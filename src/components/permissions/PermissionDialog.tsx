@@ -14,7 +14,7 @@ type Props = {
   titleRight?: React.ReactNode;
   children: React.ReactNode;
 };
-export function PermissionDialog(t0: Props) {
+export function PermissionDialog(t0) {
   const $ = _c(15);
   const {
     title,

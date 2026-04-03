@@ -48,7 +48,7 @@ function CollapseLabel(t0) {
   const snapshot = useSyncExternalStore(subscribe, t2);
   let t3;
   if ($[2] !== snapshot) {
-    t3 = (snapshot as string).split("|").map(Number);
+    t3 = snapshot.split("|").map(Number);
     $[2] = snapshot;
     $[3] = t3;
   } else {
@@ -84,7 +84,7 @@ function CollapseLabel(t0) {
   }
   return t5;
 }
-export function TokenWarning(t0: Props) {
+export function TokenWarning(t0) {
   const $ = _c(13);
   const {
     tokenUsage,

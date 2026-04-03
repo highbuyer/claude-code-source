@@ -32,7 +32,7 @@ type Props = Omit<BoxProps, 'noSelect'> & {
  * tracking). No-op in the main-screen scrollback render where the
  * terminal's native selection is used instead.
  */
-export function NoSelect(t0: PropsWithChildren<Props>) {
+export function NoSelect(t0) {
   const $ = _c(8);
   let boxProps;
   let children;

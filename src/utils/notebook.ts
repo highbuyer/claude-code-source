@@ -67,7 +67,7 @@ function processOutput(output: NotebookCellOutput) {
     case 'display_data':
       return {
         output_type: output.output_type,
-        text: processOutputText(output.data?.['text/plain'] as any),
+        text: processOutputText(output.data?.['text/plain']),
         image: output.data && extractImage(output.data),
       }
     case 'error':

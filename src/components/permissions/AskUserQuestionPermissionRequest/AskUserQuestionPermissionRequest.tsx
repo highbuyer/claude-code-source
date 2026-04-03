@@ -177,14 +177,14 @@ function AskUserQuestionPermissionRequestBody(t0) {
       const pasteId = nextPasteIdRef.current;
       const newContent = {
         id: pasteId,
-        type: "image" as const,
+        type: "image",
         content: base64Image,
         mediaType: mediaType || "image/png",
         filename: filename || "Pasted image",
         dimensions
       };
-      cacheImagePath(newContent as any);
-      storeImage(newContent as any);
+      cacheImagePath(newContent);
+      storeImage(newContent);
       setPastedContentsByQuestion(prev => ({
         ...prev,
         [questionText]: {

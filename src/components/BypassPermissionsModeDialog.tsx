@@ -9,7 +9,7 @@ import { Dialog } from './design-system/Dialog.js';
 type Props = {
   onAccept(): void;
 };
-export function BypassPermissionsModeDialog(t0: Props) {
+export function BypassPermissionsModeDialog(t0) {
   const $ = _c(7);
   const {
     onAccept

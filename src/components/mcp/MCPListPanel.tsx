@@ -89,7 +89,7 @@ function groupServersByScope(serverList: ServerInfo[]): Map<ConfigScope, ServerI
   }
   return groups;
 }
-export function MCPListPanel(t0: Props) {
+export function MCPListPanel(t0) {
   const $ = _c(78);
   const {
     servers,

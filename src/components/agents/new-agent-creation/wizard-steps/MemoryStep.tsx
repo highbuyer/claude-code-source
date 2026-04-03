@@ -22,7 +22,7 @@ export function MemoryStep() {
     goBack,
     updateWizardData,
     wizardData
-  } = useWizard<AgentWizardData>();
+  } = useWizard();
   let t0;
   if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
     t0 = {

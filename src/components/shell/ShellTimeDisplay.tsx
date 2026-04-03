@@ -6,7 +6,7 @@ type Props = {
   elapsedTimeSeconds?: number;
   timeoutMs?: number;
 };
-export function ShellTimeDisplay(t0: Props) {
+export function ShellTimeDisplay(t0) {
   const $ = _c(10);
   const {
     elapsedTimeSeconds,

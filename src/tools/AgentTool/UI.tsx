@@ -99,7 +99,7 @@ type ProcessedMessage = {
  */
 function processProgressMessages(messages: ProgressMessage<Progress>[], tools: Tools, isAgentRunning: boolean): ProcessedMessage[] {
   // Only process for ants
-  if (("external" as string) !== 'ant') {
+  if ("external" !== 'ant') {
     return messages.filter((m): m is ProgressMessage<AgentToolProgress> => hasProgressMessage(m.data) && m.data.message.type !== 'user').map(m => ({
       type: 'original',
       message: m
@@ -382,10 +382,10 @@ export function renderToolResultMessage(data: Output, progressMessagesForMessage
       inference_geo: null,
       iterations: null,
       speed: null
-    } as any
+    }
   });
   return <Box flexDirection="column">
-      {("external" as string) === 'ant' && <MessageResponse>
+      {"external" === 'ant' && <MessageResponse>
           <Text color="warning">
             [ANT-ONLY] API calls: {getDisplayPath(getDumpPromptsPath(agentId))}
           </Text>
@@ -474,7 +474,7 @@ export function renderToolUseProgressMessage(progressMessages: ProgressMessage<P
         return false;
       }
       const message = msg.data.message;
-      return 'message' in message && message.message && 'content' in message.message && Array.isArray(message.message.content) && message.message.content.some((content: any) => content.type === 'tool_use');
+      return message.message.content.some(content => content.type === 'tool_use');
     });
     const latestAssistant = progressMessages.findLast((msg): msg is ProgressMessage<AgentToolProgress> => hasProgressMessage(msg.data) && msg.data.message.type === 'assistant');
     let tokens = null;
@@ -522,7 +522,7 @@ export function renderToolUseProgressMessage(progressMessages: ProgressMessage<P
     if (!hasProgressMessage(data)) {
       return false;
     }
-    return 'message' in data.message && data.message.message && 'content' in data.message.message && Array.isArray(data.message.message.content) && data.message.message.content.some((content: any) => content.type === 'tool_use');
+    return data.message.message.content.some(content => content.type === 'tool_use');
   });
   const firstData = progressMessages[0]?.data;
   const prompt = firstData && hasProgressMessage(firstData) ? firstData.prompt : undefined;
@@ -539,7 +539,7 @@ export function renderToolUseProgressMessage(progressMessages: ProgressMessage<P
   const {
     lookups: subagentLookups,
     inProgressToolUseIDs: collapsedInProgressIDs
-  } = buildSubagentLookups(progressMessages.filter((pm): pm is ProgressMessage<AgentToolProgress> => hasProgressMessage(pm.data)).map(pm => pm.data) as any);
+  } = buildSubagentLookups(progressMessages.filter((pm): pm is ProgressMessage<AgentToolProgress> => hasProgressMessage(pm.data)).map(pm => pm.data));
   return <MessageResponse>
       <Box flexDirection="column">
         <SubAgentProvider>
@@ -591,7 +591,7 @@ export function renderToolUseRejectedMessage(_input: {
   const firstData = progressMessagesForMessage[0]?.data;
   const agentId = firstData && hasProgressMessage(firstData) ? firstData.agentId : undefined;
   return <>
-      {("external" as string) === 'ant' && agentId && <MessageResponse>
+      {"external" === 'ant' && agentId && <MessageResponse>
           <Text color="warning">
             [ANT-ONLY] API calls: {getDisplayPath(getDumpPromptsPath(agentId))}
           </Text>

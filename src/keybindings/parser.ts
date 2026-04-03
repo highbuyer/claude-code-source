@@ -195,7 +195,7 @@ export function parseBindings(blocks: KeybindingBlock[]): ParsedBinding[] {
       bindings.push({
         chord: parseChord(key),
         action,
-        context: block.context as any,
+        context: block.context,
       })
     }
   }

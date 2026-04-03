@@ -412,7 +412,7 @@ function getUserBindingsForValidation(
       bindings.push({
         chord,
         action,
-        context: block.context as any,
+        context: block.context,
       })
     }
   }

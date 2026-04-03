@@ -17,7 +17,7 @@ type Props = {
   useBriefLayout?: boolean;
   children: React.ReactNode;
 };
-export function QueuedMessageProvider(t0: Props) {
+export function QueuedMessageProvider(t0) {
   const $ = _c(9);
   const {
     isFirst,

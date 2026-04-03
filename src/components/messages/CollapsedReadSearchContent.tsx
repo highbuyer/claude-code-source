@@ -194,7 +194,7 @@ export function CollapsedReadSearchContent({
   if (incomingHint === undefined) {
     const lastSearchRaw = searchArgs?.at(-1);
     const lastSearch = lastSearchRaw !== undefined ? `"${lastSearchRaw}"` : undefined;
-    const lastRead = readPaths ? [...readPaths].at(-1) : undefined;
+    const lastRead = readPaths?.at(-1);
     incomingHint = lastRead !== undefined ? getDisplayPath(lastRead) : lastSearch;
   }
 

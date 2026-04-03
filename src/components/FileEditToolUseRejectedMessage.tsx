@@ -21,7 +21,7 @@ type Props = {
   style?: 'condensed';
   verbose: boolean;
 };
-export function FileEditToolUseRejectedMessage(t0: Props) {
+export function FileEditToolUseRejectedMessage(t0) {
   const $ = _c(38);
   const {
     file_path,

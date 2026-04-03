@@ -9,7 +9,7 @@ type Props = {
   channels: ChannelEntry[];
   onAccept(): void;
 };
-export function DevChannelsDialog(t0: Props) {
+export function DevChannelsDialog(t0) {
   const $ = _c(14);
   const {
     channels,

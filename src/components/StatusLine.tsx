@@ -52,13 +52,13 @@ function buildStatusLineCommandInput(permissionMode: PermissionMode, exceeds200k
     ...(rawUtil.five_hour && {
       five_hour: {
         used_percentage: rawUtil.five_hour.utilization * 100,
-        resets_at: String(rawUtil.five_hour.resets_at)
+        resets_at: rawUtil.five_hour.resets_at
       }
     }),
     ...(rawUtil.seven_day && {
       seven_day: {
         used_percentage: rawUtil.seven_day.utilization * 100,
-        resets_at: String(rawUtil.seven_day.resets_at)
+        resets_at: rawUtil.seven_day.resets_at
       }
     })
   };
@@ -91,7 +91,7 @@ function buildStatusLineCommandInput(permissionMode: PermissionMode, exceeds200k
       total_input_tokens: getTotalInputTokens(),
       total_output_tokens: getTotalOutputTokens(),
       context_window_size: contextWindowSize,
-      current_usage: currentUsage as any,
+      current_usage: currentUsage,
       used_percentage: contextPercentages.used,
       remaining_percentage: contextPercentages.remaining
     },

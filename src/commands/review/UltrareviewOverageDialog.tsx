@@ -7,7 +7,7 @@ type Props = {
   onProceed: (signal: AbortSignal) => Promise<void>;
   onCancel: () => void;
 };
-export function UltrareviewOverageDialog(t0: Props) {
+export function UltrareviewOverageDialog(t0) {
   const $ = _c(15);
   const {
     onProceed,

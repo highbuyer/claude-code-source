@@ -16,7 +16,7 @@ type Props = {
   taskId?: string;
   verbose: boolean;
 };
-export function ShellProgressMessage(t0: Props) {
+export function ShellProgressMessage(t0) {
   const $ = _c(30);
   const {
     output,

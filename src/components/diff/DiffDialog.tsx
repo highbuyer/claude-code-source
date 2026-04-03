@@ -52,7 +52,7 @@ function turnDiffToDiffData(turn: TurnDiff): DiffData {
     loading: false
   };
 }
-export function DiffDialog(t0: Props) {
+export function DiffDialog(t0) {
   const $ = _c(73);
   const {
     messages,

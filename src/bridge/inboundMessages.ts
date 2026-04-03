@@ -3,8 +3,7 @@ import type {
   ContentBlockParam,
   ImageBlockParam,
 } from '@anthropic-ai/sdk/resources/messages.mjs'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import type { SDKMessage } from '../entrypoints/agentSdkTypes.js'
 import { detectImageFormatFromBase64 } from '../utils/imageResizer.js'
 
@@ -25,7 +24,7 @@ export function extractInboundMessageFields(
   | { content: string | Array<ContentBlockParam>; uuid: UUID | undefined }
   | undefined {
   if (msg.type !== 'user') return undefined
-  const content = (msg.message as any)?.content
+  const content = msg.message?.content
   if (!content) return undefined
   if (Array.isArray(content) && content.length === 0) return undefined
 

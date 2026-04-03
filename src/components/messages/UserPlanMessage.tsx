@@ -6,7 +6,7 @@ type Props = {
   addMargin: boolean;
   planContent: string;
 };
-export function UserPlanMessage(t0: Props) {
+export function UserPlanMessage(t0) {
   const $ = _c(6);
   const {
     addMargin,

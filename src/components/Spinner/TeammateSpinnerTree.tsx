@@ -18,7 +18,7 @@ type Props = {
   /** Leader's idle status text (when leader is idle, e.g. "✻ Idle for 3s") */
   leaderIdleText?: string;
 };
-export function TeammateSpinnerTree(t0: Props) {
+export function TeammateSpinnerTree(t0) {
   const $ = _c(61);
   const {
     selectedIndex,

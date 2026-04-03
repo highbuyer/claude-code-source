@@ -1,8 +1,7 @@
 import { c as _c } from "react/compiler-runtime";
 import { feature } from 'bun:bundle';
 import chalk from 'chalk';
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string;
+import type { UUID } from 'crypto';
 import type { RefObject } from 'react';
 import * as React from 'react';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
@@ -53,7 +52,7 @@ import type { JumpHandle } from './VirtualMessageList.js';
 // and pegs CPU at 100%. Memo on agentDefinitions so a new messages array
 // doesn't invalidate the logo subtree. LogoV2/StatusNotices internally
 // subscribe to useAppState/useSettings for their own updates.
-const LogoHeader = React.memo(function LogoHeader(t0: { agentDefinitions: any }) {
+const LogoHeader = React.memo(function LogoHeader(t0) {
   const $ = _c(3);
   const {
     agentDefinitions

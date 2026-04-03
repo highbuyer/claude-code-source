@@ -113,7 +113,7 @@ export function AttachmentMessage({
       // names — shortId is undefined outside ant builds anyway.
       const names = attachment.skills.map(s => s.shortId ? `${s.name} [${s.shortId}]` : s.name).join(', ');
       const firstId = attachment.skills[0]?.shortId;
-      const hint = ("external" as string) === 'ant' && !isDemoEnv && firstId ? ` · /skill-feedback ${firstId} 1=wrong 2=noisy 3=good [comment]` : '';
+      const hint = "external" === 'ant' && !isDemoEnv && firstId ? ` · /skill-feedback ${firstId} 1=wrong 2=noisy 3=good [comment]` : '';
       return <Line>
           <Text bold>{attachment.skills.length}</Text> relevant{' '}
           {plural(attachment.skills.length, 'skill')}: {names}
@@ -358,7 +358,7 @@ export function AttachmentMessage({
 type TaskStatusAttachment = Extract<Attachment, {
   type: 'task_status';
 }>;
-function TaskStatusMessage(t0: { attachment: TaskStatusAttachment }) {
+function TaskStatusMessage(t0) {
   const $ = _c(4);
   const {
     attachment
@@ -429,19 +429,19 @@ function GenericTaskStatus(t0) {
   }
   return t4;
 }
-function TeammateTaskStatus(t0: { attachment: TaskStatusAttachment }) {
+function TeammateTaskStatus(t0) {
   const $ = _c(16);
   const {
     attachment
   } = t0;
   const bg = useSelectedMessageBg();
-  let t1: (s: { tasks: Record<string, { type: string; identity?: { color?: string; agentName?: string } }> }) => { type: string; identity?: { color?: string; agentName?: string } } | undefined;
+  let t1;
   if ($[0] !== attachment.taskId) {
     t1 = s => s.tasks[attachment.taskId];
     $[0] = attachment.taskId;
     $[1] = t1;
   } else {
-    t1 = $[1] as typeof t1;
+    t1 = $[1];
   }
   const task = useAppState(t1);
   if (task?.type !== "in_process_teammate") {

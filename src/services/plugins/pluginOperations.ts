@@ -379,40 +379,38 @@ export async function installPluginOp(
   })
 
   if (!result.ok) {
-    const fail = result as Extract<typeof result, { ok: false }>
-    switch (fail.reason) {
+    switch (result.reason) {
       case 'local-source-no-location':
         return {
           success: false,
-          message: `Cannot install local plugin "${fail.pluginName}" without marketplace install location`,
+          message: `Cannot install local plugin "${result.pluginName}" without marketplace install location`,
         }
       case 'settings-write-failed':
         return {
           success: false,
-          message: `Failed to update settings: ${fail.message}`,
+          message: `Failed to update settings: ${result.message}`,
         }
       case 'resolution-failed':
         return {
           success: false,
-          message: formatResolutionError(fail.resolution),
+          message: formatResolutionError(result.resolution),
         }
       case 'blocked-by-policy':
         return {
           success: false,
-          message: `Plugin "${fail.pluginName}" is blocked by your organization's policy and cannot be installed`,
+          message: `Plugin "${result.pluginName}" is blocked by your organization's policy and cannot be installed`,
         }
       case 'dependency-blocked-by-policy':
         return {
           success: false,
-          message: `Plugin "${fail.pluginName}" depends on "${fail.blockedDependency}", which is blocked by your organization's policy`,
+          message: `Plugin "${result.pluginName}" depends on "${result.blockedDependency}", which is blocked by your organization's policy`,
         }
     }
   }
 
-  const success = result as Extract<typeof result, { ok: true }>
   return {
     success: true,
-    message: `Successfully installed plugin: ${pluginId} (scope: ${scope})${success.depNote}`,
+    message: `Successfully installed plugin: ${pluginId} (scope: ${scope})${result.depNote}`,
     pluginId,
     pluginName: entry.name,
     scope,

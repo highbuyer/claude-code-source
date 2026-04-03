@@ -6,8 +6,7 @@
  * extension (packages/claude-vscode/src/common-host/sessionStorage.ts).
  */
 
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import { open as fsOpen, readdir, realpath, stat } from 'fs/promises'
 import { join } from 'path'
 import { getClaudeConfigHomeDir } from './envUtils.js'

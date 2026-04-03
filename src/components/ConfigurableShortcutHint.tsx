@@ -30,7 +30,7 @@ type Props = {
  *   description="expand"
  * />
  */
-export function ConfigurableShortcutHint(t0: Props) {
+export function ConfigurableShortcutHint(t0) {
   const $ = _c(5);
   const {
     action,

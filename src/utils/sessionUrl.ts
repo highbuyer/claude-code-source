@@ -1,6 +1,4 @@
-import { randomUUID } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import { randomUUID, type UUID } from 'crypto'
 import { validateUuid } from './uuid.js'
 
 export type ParsedSessionUrl = {

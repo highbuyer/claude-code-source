@@ -11,7 +11,7 @@ const MAX_SHOW_COUNT = 3;
  * Hook to check if the user has a subscription on Console but isn't logged into it.
  */
 export function useCanSwitchToExistingSubscription() {
-  useStartupNotification(_temp2 as any);
+  useStartupNotification(_temp2);
 }
 
 /**
@@ -49,10 +49,10 @@ async function getExistingClaudeSubscription(): Promise<'Max' | 'Pro' | null> {
   if (!profile) {
     return null;
   }
-  if ((profile.account as any).has_claude_max) {
+  if (profile.account.has_claude_max) {
     return 'Max';
   }
-  if ((profile.account as any).has_claude_pro) {
+  if (profile.account.has_claude_pro) {
     return 'Pro';
   }
   return null;

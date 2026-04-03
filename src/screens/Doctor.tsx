@@ -59,7 +59,7 @@ function DistTagsDisplay(t0) {
   const {
     promise
   } = t0;
-  const distTags = use(promise) as NpmDistTags;
+  const distTags = use(promise);
   if (!distTags.latest) {
     let t1;
     if ($[0] === Symbol.for("react.memo_cache_sentinel")) {
@@ -97,7 +97,7 @@ function DistTagsDisplay(t0) {
   }
   return t3;
 }
-export function Doctor(t0: Props) {
+export function Doctor(t0) {
   const $ = _c(84);
   const {
     onDone

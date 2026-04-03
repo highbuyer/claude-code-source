@@ -24,7 +24,7 @@ type Props = {
   onSelectEvent: (event: HookEvent) => void;
   onCancel: () => void;
 };
-export function SelectEventMode(t0: Props) {
+export function SelectEventMode(t0) {
   const $ = _c(23);
   const {
     hookEventMetadata,

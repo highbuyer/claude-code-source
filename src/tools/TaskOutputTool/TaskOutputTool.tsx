@@ -247,7 +247,7 @@ export const TaskOutputTool: Tool<InputSchema, TaskOutputToolOutput> = buildTool
           type: 'waiting_for_task',
           taskDescription: task.description,
           taskType: task.type
-        } as any
+        }
       });
     }
     const completedTask = await waitForTaskCompletion(task_id, toolUseContext.getAppState, timeout, toolUseContext.abortController);

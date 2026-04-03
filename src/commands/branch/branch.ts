@@ -1,6 +1,4 @@
-import { randomUUID } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import { randomUUID, type UUID } from 'crypto'
 import { mkdir, readFile, writeFile } from 'fs/promises'
 import { getOriginalCwd, getSessionId } from '../../bootstrap/state.js'
 import type { LocalJSXCommandContext } from '../../commands.js'

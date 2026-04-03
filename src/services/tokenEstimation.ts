@@ -411,7 +411,7 @@ function roughTokenCountEstimationForBlock(
     return 2000
   }
   if (block.type === 'tool_result') {
-    return roughTokenCountEstimationForContent(block.content as any)
+    return roughTokenCountEstimationForContent(block.content)
   }
   if (block.type === 'tool_use') {
     // input is the JSON the model generated — arbitrarily large (bash

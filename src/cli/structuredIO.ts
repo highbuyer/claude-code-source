@@ -448,9 +448,9 @@ export class StructuredIO {
       if (message.type === 'assistant' || message.type === 'system') {
         return message
       }
-      if ((message as any).message.role !== 'user') {
+      if (message.message.role !== 'user') {
         exitWithMessage(
-          `Error: Expected message role 'user', got '${(message as any).message.role}'`,
+          `Error: Expected message role 'user', got '${message.message.role}'`,
         )
       }
       return message
@@ -818,11 +818,11 @@ async function executePermissionRequestHooksForSDK(
         // Apply permission updates if provided by hook ("always allow")
         const permissionUpdates = decision.updatedPermissions ?? []
         if (permissionUpdates.length > 0) {
-          persistPermissionUpdates(permissionUpdates as any)
+          persistPermissionUpdates(permissionUpdates)
           const currentAppState = toolUseContext.getAppState()
           const updatedContext = applyPermissionUpdates(
             currentAppState.toolPermissionContext,
-            permissionUpdates as any,
+            permissionUpdates,
           )
           // Update permission context via setAppState
           toolUseContext.setAppState(prev => {

@@ -1,6 +1,5 @@
 import { feature } from 'bun:bundle'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import { findToolByName, type Tools } from '../Tool.js'
 import { extractBashCommentLabel } from '../tools/BashTool/commentLabel.js'
 import { BASH_TOOL_NAME } from '../tools/BashTool/toolName.js'
@@ -18,8 +17,6 @@ import { TOOL_SEARCH_TOOL_NAME } from '../tools/ToolSearchTool/prompt.js'
 import type {
   CollapsedReadSearchGroup,
   CollapsibleMessage,
-  NormalizedAssistantMessage,
-  NormalizedUserMessage,
   RenderableMessage,
   StopHookInfo,
   SystemStopHookSummaryMessage,
@@ -503,7 +500,7 @@ export function hasAnyToolInProgress(
 export function getDisplayMessageFromCollapsed(
   message: CollapsedReadSearchGroup,
 ): Exclude<CollapsibleMessage, { type: 'grouped_tool_use' }> {
-  const firstMsg = message.displayMessage as CollapsibleMessage
+  const firstMsg = message.displayMessage
   if (firstMsg.type === 'grouped_tool_use') {
     return firstMsg.displayMessage
   }
@@ -716,11 +713,11 @@ function createCollapsedGroup(
     memorySearchCount: group.memorySearchCount,
     memoryReadCount,
     memoryWriteCount: group.memoryWriteCount,
-    readFilePaths: new Set(nonMemReadFilePaths),
-    searchArgs: group.nonMemSearchArgs.map(p => ({ pattern: p })),
+    readFilePaths: nonMemReadFilePaths,
+    searchArgs: group.nonMemSearchArgs,
     latestDisplayHint: group.latestDisplayHint,
     messages: group.messages,
-    displayMessage: firstMsg as NormalizedAssistantMessage | NormalizedUserMessage,
+    displayMessage: firstMsg,
     uuid: `collapsed-${firstMsg.uuid}` as UUID,
     timestamp: firstMsg.timestamp,
   }

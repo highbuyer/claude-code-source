@@ -22,7 +22,7 @@ type DirectoryItem = {
   isCurrent: boolean;
   isDeletable: boolean;
 };
-export function WorkspaceTab(t0: Props) {
+export function WorkspaceTab(t0) {
   const $ = _c(23);
   const {
     onExit,

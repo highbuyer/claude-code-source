@@ -48,7 +48,7 @@ type ModeState = {
   event: HookEvent;
   hook: IndividualHookConfig;
 };
-export function HooksConfigMenu(t0: Props) {
+export function HooksConfigMenu(t0) {
   const $ = _c(100);
   const {
     toolNames,

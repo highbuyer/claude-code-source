@@ -13,7 +13,7 @@ type Props = {
   edit_mode?: 'replace' | 'insert' | 'delete';
   verbose: boolean;
 };
-export function NotebookEditToolUseRejectedMessage(t0: Props) {
+export function NotebookEditToolUseRejectedMessage(t0) {
   const $ = _c(20);
   const {
     notebook_path,

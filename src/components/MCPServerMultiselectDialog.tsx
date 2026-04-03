@@ -14,7 +14,7 @@ type Props = {
   serverNames: string[];
   onDone(): void;
 };
-export function MCPServerMultiselectDialog(t0: Props) {
+export function MCPServerMultiselectDialog(t0) {
   const $ = _c(21);
   const {
     serverNames,

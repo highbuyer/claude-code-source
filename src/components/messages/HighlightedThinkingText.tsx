@@ -12,7 +12,7 @@ type Props = {
   useBriefLayout?: boolean;
   timestamp?: string;
 };
-export function HighlightedThinkingText(t0: Props) {
+export function HighlightedThinkingText(t0) {
   const $ = _c(31);
   const {
     text,

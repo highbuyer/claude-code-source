@@ -1,6 +1,5 @@
+import type { UUID } from 'crypto'
 import { randomUUID } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
 import { getIsNonInteractiveSession, getSessionId } from '../bootstrap/state.js'
 import type { SdkWorkflowProgress } from '../types/tools.js'
 

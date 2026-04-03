@@ -25,7 +25,7 @@ type Props = {
   onSelect: (matcher: string) => void;
   onCancel: () => void;
 };
-export function SelectMatcherMode(t0: Props) {
+export function SelectMatcherMode(t0) {
   const $ = _c(25);
   const {
     selectedEvent,

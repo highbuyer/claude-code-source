@@ -1,7 +1,6 @@
 import { c as _c } from "react/compiler-runtime";
 import chalk from 'chalk';
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string;
+import type { UUID } from 'crypto';
 import figures from 'figures';
 import * as React from 'react';
 import { getOriginalCwd, getSessionId } from '../../bootstrap/state.js';
@@ -155,11 +154,11 @@ function ResumeCommand({
       }
 
       // Different project - show command instead of resuming
-      const raw = await setClipboard((crossProjectCheck as any).command);
+      const raw = await setClipboard(crossProjectCheck.command);
       if (raw) process.stdout.write(raw);
 
       // Format the output message
-      const message = ['', 'This conversation is from a different directory.', '', 'To resume, run:', `  ${(crossProjectCheck as any).command}`, '', '(Command copied to clipboard)', ''].join('\n');
+      const message = ['', 'This conversation is from a different directory.', '', 'To resume, run:', `  ${crossProjectCheck.command}`, '', '(Command copied to clipboard)', ''].join('\n');
       onDone(message, {
         display: 'user'
       });

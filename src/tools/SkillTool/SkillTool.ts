@@ -1019,7 +1019,7 @@ async function executeRemoteSkill(
     fileCount,
     totalBytes,
     fetchMethod,
-  } as any)
+  })
 
   // Remote skills are always model-discovered (never in static skill_listing),
   // so was_discovered is always true. is_remote lets BQ queries separate

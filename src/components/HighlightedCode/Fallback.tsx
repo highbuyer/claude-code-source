@@ -36,7 +36,7 @@ function cachedHighlight(hl: NonNullable<Awaited<ReturnType<typeof getCliHighlig
   hlCache.set(key, out);
   return out;
 }
-export function HighlightedCodeFallback(t0: Props) {
+export function HighlightedCodeFallback(t0) {
   const $ = _c(20);
   const {
     code,
@@ -134,7 +134,7 @@ function Highlighted(t0) {
   } else {
     t1 = $[0];
   }
-  const hl = use(t1) as Awaited<ReturnType<typeof getCliHighlightPromise>>;
+  const hl = use(t1);
   let t2;
   if ($[1] !== codeWithSpaces || $[2] !== hl || $[3] !== language) {
     bb0: {

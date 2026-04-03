@@ -1,6 +1,4 @@
-import { createHash, randomUUID } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import { createHash, randomUUID, type UUID } from 'crypto'
 import { stat } from 'fs/promises'
 import { isAbsolute, join, relative, sep } from 'path'
 import { getOriginalCwd, getSessionId } from '../bootstrap/state.js'

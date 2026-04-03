@@ -5,7 +5,7 @@ import { Box, Text } from 'src/ink.js';
 type Props = {
   hasStash: boolean;
 };
-export function PromptInputStashNotice(t0: Props) {
+export function PromptInputStashNotice(t0) {
   const $ = _c(1);
   const {
     hasStash

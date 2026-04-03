@@ -408,7 +408,7 @@ export async function installResolvedPlugin({
     allowedCrossMarketplaces,
   )
   if (!resolution.ok) {
-    return { ok: false, reason: 'resolution-failed', resolution: resolution as ResolutionResult & { ok: false } }
+    return { ok: false, reason: 'resolution-failed', resolution }
   }
 
   // ── Policy guard for transitive dependencies ──
@@ -525,37 +525,35 @@ export async function installPluginFromMarketplace({
     })
 
     if (!result.ok) {
-      const fail = result as Extract<typeof result, { ok: false }>
-      switch (fail.reason) {
+      switch (result.reason) {
         case 'local-source-no-location':
           return {
             success: false,
-            error: `Cannot install local plugin "${fail.pluginName}" without marketplace install location`,
+            error: `Cannot install local plugin "${result.pluginName}" without marketplace install location`,
           }
         case 'settings-write-failed':
           return {
             success: false,
-            error: `Failed to update settings: ${fail.message}`,
+            error: `Failed to update settings: ${result.message}`,
           }
         case 'resolution-failed':
           return {
             success: false,
-            error: formatResolutionError(fail.resolution),
+            error: formatResolutionError(result.resolution),
           }
         case 'blocked-by-policy':
           return {
             success: false,
-            error: `Plugin "${fail.pluginName}" is blocked by your organization's policy and cannot be installed`,
+            error: `Plugin "${result.pluginName}" is blocked by your organization's policy and cannot be installed`,
           }
         case 'dependency-blocked-by-policy':
           return {
             success: false,
-            error: `Cannot install "${fail.pluginName}": dependency "${fail.blockedDependency}" is blocked by your organization's policy`,
+            error: `Cannot install "${result.pluginName}": dependency "${result.blockedDependency}" is blocked by your organization's policy`,
           }
       }
     }
 
-    const success = result as Extract<typeof result, { ok: true }>
     // _PROTO_* routes to PII-tagged plugin_name/marketplace_name BQ columns.
     // plugin_id kept in additional_metadata (redacted to 'third-party' for
     // non-official) because dbt external_claude_code_plugin_installs.sql
@@ -587,7 +585,7 @@ export async function installPluginFromMarketplace({
 
     return {
       success: true,
-      message: `✓ Installed ${entry.name}${success.depNote}. Run /reload-plugins to activate.`,
+      message: `✓ Installed ${entry.name}${result.depNote}. Run /reload-plugins to activate.`,
     }
   } catch (err) {
     const errorMessage = err instanceof Error ? err.message : String(err)

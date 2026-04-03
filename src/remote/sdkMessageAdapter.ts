@@ -31,7 +31,7 @@ import { createUserMessage } from '../utils/messages.js'
 function convertAssistantMessage(msg: SDKAssistantMessage): AssistantMessage {
   return {
     type: 'assistant',
-    message: msg.message as any,
+    message: msg.message,
     uuid: msg.uuid,
     requestId: undefined,
     timestamp: new Date().toISOString(),
@@ -174,7 +174,7 @@ export function convertSDKMessage(
       return { type: 'message', message: convertAssistantMessage(msg) }
 
     case 'user': {
-      const content = (msg.message as any)?.content
+      const content = msg.message?.content
       // Tool result messages from the remote server need to be converted so
       // they render and collapse like local tool results. Detect via content
       // shape (tool_result blocks) — parent_tool_use_id is NOT reliable: the

@@ -15,7 +15,7 @@ type Props = {
   verbose: boolean;
   previewHint?: string;
 };
-export function FileEditToolUpdatedMessage(t0: Props) {
+export function FileEditToolUpdatedMessage(t0) {
   const $ = _c(22);
   const {
     filePath,

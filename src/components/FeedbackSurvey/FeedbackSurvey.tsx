@@ -17,7 +17,7 @@ type Props = {
   onRequestFeedback?: () => void;
   message?: string;
 };
-export function FeedbackSurvey(t0: Props) {
+export function FeedbackSurvey(t0) {
   const $ = _c(16);
   const {
     state,

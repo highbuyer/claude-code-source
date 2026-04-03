@@ -164,7 +164,7 @@ export function getCachedRemainingPasses(): number | null {
   if (!orgId) return null
   const config = getGlobalConfig()
   const cachedEntry = config.passesEligibilityCache?.[orgId]
-  return (cachedEntry as any)?.remaining_passes ?? null
+  return cachedEntry?.remaining_passes ?? null
 }
 
 /**

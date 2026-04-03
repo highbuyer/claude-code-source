@@ -11,7 +11,7 @@ type Props = {
   verbose: boolean;
   isTranscriptMode?: boolean;
 };
-export function HookProgressMessage(t0: Props) {
+export function HookProgressMessage(t0) {
   const $ = _c(22);
   const {
     hookEvent,

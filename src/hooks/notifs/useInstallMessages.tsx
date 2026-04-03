@@ -1,7 +1,7 @@
 import { checkInstall } from 'src/utils/nativeInstaller/index.js';
 import { useStartupNotification } from './useStartupNotification.js';
 export function useInstallMessages() {
-  useStartupNotification(_temp2 as any);
+  useStartupNotification(_temp2);
 }
 async function _temp2() {
   const messages = await checkInstall();

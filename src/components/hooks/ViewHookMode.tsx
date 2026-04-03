@@ -14,7 +14,7 @@ type Props = {
   eventSupportsMatcher: boolean;
   onCancel: () => void;
 };
-export function ViewHookMode(t0: Props) {
+export function ViewHookMode(t0) {
   const $ = _c(40);
   const {
     selectedHook,

@@ -1,5 +1,4 @@
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import { getSessionId } from '../../bootstrap/state.js'
 import type { ToolUseContext } from '../../Tool.js'
 import {

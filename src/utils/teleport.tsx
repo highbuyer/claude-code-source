@@ -844,8 +844,7 @@ export async function teleportToRemote(options: {
           signal
         });
         if (!bundle.success) {
-          const fail = bundle as Extract<typeof bundle, { success: false }>
-          logError(new Error(`Bundle upload failed: ${fail.error}`));
+          logError(new Error(`Bundle upload failed: ${bundle.error}`));
           return null;
         }
         seedBundleFileId = bundle.fileId;
@@ -1009,12 +1008,11 @@ export async function teleportToRemote(options: {
         signal
       });
       if (!bundle.success) {
-        const fail = bundle as Extract<typeof bundle, { success: false }>
-        logError(new Error(`Bundle upload failed: ${fail.error}`));
+        logError(new Error(`Bundle upload failed: ${bundle.error}`));
         // Only steer users to GitHub setup when there's a remote to clone from.
         const setup = repoInfo ? '. Please setup GitHub on https://claude.ai/code' : '';
         let msg: string;
-        switch (fail.failReason) {
+        switch (bundle.failReason) {
           case 'empty_repo':
             msg = 'Repository has no commits — run `git add . && git commit -m "initial"` then retry';
             break;
@@ -1022,16 +1020,16 @@ export async function teleportToRemote(options: {
             msg = `Repo is too large to teleport${setup}`;
             break;
           case 'git_error':
-            msg = `Failed to create git bundle (${fail.error})${setup}`;
+            msg = `Failed to create git bundle (${bundle.error})${setup}`;
             break;
           case undefined:
-            msg = `Bundle upload failed: ${fail.error}${setup}`;
+            msg = `Bundle upload failed: ${bundle.error}${setup}`;
             break;
           default:
             {
-              const _exhaustive: never = fail.failReason;
+              const _exhaustive: never = bundle.failReason;
               void _exhaustive;
-              msg = `Bundle upload failed: ${fail.error}`;
+              msg = `Bundle upload failed: ${bundle.error}`;
             }
         }
         options.onBundleFail?.(msg);
