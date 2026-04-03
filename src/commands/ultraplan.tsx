@@ -43,16 +43,7 @@ function getUltraplanModel(): string {
 //
 // Bundler inlines .txt as a string; the test runner wraps it as {default}.
 /* eslint-disable @typescript-eslint/no-require-imports */
-let _rawPrompt: string | {
-  default: string;
-};
-try {
-  _rawPrompt = require('../utils/ultraplan/prompt.txt');
-} catch {
-  _rawPrompt = {
-    default: ['Create a thorough implementation plan for the user request.', 'Break the work into concrete steps, call out risks and assumptions, and wait for explicit approval before executing the plan.'].join('\n')
-  };
-}
+const _rawPrompt = require('../utils/ultraplan/prompt.txt');
 /* eslint-enable @typescript-eslint/no-require-imports */
 const DEFAULT_INSTRUCTIONS: string = (typeof _rawPrompt === 'string' ? _rawPrompt : _rawPrompt.default).trimEnd();
 
@@ -62,7 +53,7 @@ const DEFAULT_INSTRUCTIONS: string = (typeof _rawPrompt === 'string' ? _rawPromp
 // Shell-set env only, so top-level process.env read is fine
 // — settings.env never injects this.
 /* eslint-disable custom-rules/no-process-env-top-level, custom-rules/no-sync-fs -- ant-only dev override; eager top-level read is the point (crash at startup, not silently inside the slash-command try/catch) */
-const ULTRAPLAN_INSTRUCTIONS: string = ("external" as string) === 'ant' && process.env.ULTRAPLAN_PROMPT_FILE ? readFileSync(process.env.ULTRAPLAN_PROMPT_FILE, 'utf8').trimEnd() : DEFAULT_INSTRUCTIONS;
+const ULTRAPLAN_INSTRUCTIONS: string = "external" === 'ant' && process.env.ULTRAPLAN_PROMPT_FILE ? readFileSync(process.env.ULTRAPLAN_PROMPT_FILE, 'utf8').trimEnd() : DEFAULT_INSTRUCTIONS;
 /* eslint-enable custom-rules/no-process-env-top-level, custom-rules/no-sync-fs */
 
 /**
@@ -323,12 +314,11 @@ async function launchDetached(opts: {
     const model = getUltraplanModel();
     const eligibility = await checkRemoteAgentEligibility();
     if (!eligibility.eligible) {
-      const fail = eligibility as Extract<typeof eligibility, { eligible: false }>
       logEvent('tengu_ultraplan_create_failed', {
         reason: 'precondition' as AnalyticsMetadata_I_VERIFIED_THIS_IS_NOT_CODE_OR_FILEPATHS,
-        precondition_errors: fail.errors.map(e => e.type).join(',') as AnalyticsMetadata_I_VERIFIED_THIS_IS_NOT_CODE_OR_FILEPATHS
+        precondition_errors: eligibility.errors.map(e => e.type).join(',') as AnalyticsMetadata_I_VERIFIED_THIS_IS_NOT_CODE_OR_FILEPATHS
       });
-      const reasons = fail.errors.map(formatPreconditionError).join('\n');
+      const reasons = eligibility.errors.map(formatPreconditionError).join('\n');
       enqueuePendingNotification({
         value: `ultraplan: cannot launch remote session —\n${reasons}`,
         mode: 'task-notification'
@@ -473,7 +463,7 @@ export default {
   name: 'ultraplan',
   description: `~10–30 min · Claude Code on the web drafts an advanced plan you can edit and approve. See ${CCR_TERMS_URL}`,
   argumentHint: '<prompt>',
-  isEnabled: () => ("external" as string) === 'ant',
+  isEnabled: () => "external" === 'ant',
   load: () => Promise.resolve({
     call
   })

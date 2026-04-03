@@ -1,6 +1,4 @@
-import { createHash } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import { createHash, type UUID } from 'crypto'
 import { diffLines } from 'diff'
 import type { Stats } from 'fs'
 import {

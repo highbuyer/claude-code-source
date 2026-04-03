@@ -46,7 +46,6 @@ type Props = {
   pauseStartTimeRef: React.RefObject<number | null>;
   spinnerTip?: string;
   responseLengthRef: React.RefObject<number>;
-  apiMetricsRef?: React.RefObject<any>;
   overrideColor?: keyof Theme | null;
   overrideShimmerColor?: keyof Theme | null;
   overrideMessage?: string | null;
@@ -80,9 +79,6 @@ export function SpinnerWithVerb(props: Props): React.ReactNode {
   }
   return <SpinnerWithVerbInner {...props} />;
 }
-// Stubs for ant-only symbols (dead-code-eliminated but still type-checked)
-declare const apiMetricsRef: { current: any[] } | undefined
-declare function computeTtftText(metrics: any[]): string | null
 function SpinnerWithVerbInner({
   mode,
   loadingStartTimeRef,

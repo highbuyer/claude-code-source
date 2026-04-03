@@ -508,7 +508,7 @@ export function ScrollKeybindingHandler({
     },
     'selection:copy': copyAndToast
   }, {
-    context: 'Scroll' as any,
+    context: 'Scroll',
     isActive
   });
 
@@ -550,7 +550,7 @@ export function ScrollKeybindingHandler({
       onScroll?.(sticky_4, s_9);
     }
   }, {
-    context: 'Scroll' as any,
+    context: 'Scroll',
     isActive
   });
 

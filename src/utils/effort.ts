@@ -10,10 +10,6 @@ import type { EffortLevel } from 'src/entrypoints/sdk/runtimeTypes.js'
 
 export type { EffortLevel }
 
-// Stubs for ant-only functions (dead-code-eliminated but still type-checked)
-declare function resolveAntModel(model: string): any
-declare function getAntModelOverrideConfig(): { effort?: any; defaultModel?: string; defaultModelEffortLevel?: EffortValue } | undefined
-
 export const EFFORT_LEVELS = [
   'low',
   'medium',

@@ -938,13 +938,13 @@ function getPreviousRequestIdFromMessages(
 }
 
 function isMedia(
-  block: { type: string },
+  block: BetaContentBlockParam,
 ): block is BetaImageBlockParam | BetaRequestDocumentBlock {
   return block.type === 'image' || block.type === 'document'
 }
 
 function isToolResult(
-  block: { type: string },
+  block: BetaContentBlockParam,
 ): block is BetaToolResultBlockParam {
   return block.type === 'tool_result'
 }
@@ -1703,8 +1703,8 @@ async function* queryModel(
         enablePromptCaching,
         options.querySource,
         useCachedMC,
-        consumedCacheEdits as CachedMCEditsBlock | null,
-        consumedPinnedEdits as CachedMCPinnedEdits[],
+        consumedCacheEdits,
+        consumedPinnedEdits,
         options.skipCacheWrite,
       ),
       system,
@@ -2243,15 +2243,15 @@ async function* queryModel(
 
             const lastMsg = newMessages.at(-1)
             if (lastMsg) {
-              lastMsg.message.usage = usage as any
+              lastMsg.message.usage = usage
               lastMsg.message.stop_reason = stopReason
             }
 
             // Update cost
-            const costUSDForPart = calculateUSDCost(resolvedModel, usage as any)
+            const costUSDForPart = calculateUSDCost(resolvedModel, usage)
             costUSD += addToTotalSessionCost(
               costUSDForPart,
-              usage as any,
+              usage,
               options.model,
             )
 

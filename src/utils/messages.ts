@@ -12,9 +12,7 @@ import type {
   ToolUseBlock,
   ToolUseBlockParam,
 } from '@anthropic-ai/sdk/resources/index.mjs'
-import { randomUUID } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import { randomUUID, type UUID } from 'crypto'
 import isObject from 'lodash-es/isObject.js'
 import last from 'lodash-es/last.js'
 import {
@@ -490,7 +488,7 @@ export function createUserMessage({
   timestamp?: string
   imagePasteIds?: number[]
   // For tool_result messages: the UUID of the assistant message containing the matching tool_use
-  sourceToolAssistantUUID?: UUID | string
+  sourceToolAssistantUUID?: UUID
   // Permission mode when message was sent (for rewind restoration)
   permissionMode?: PermissionMode
   summarizeMetadata?: {
@@ -2561,7 +2559,7 @@ function smooshIntoToolResult(
   // results) and matches the legacy smoosh output shape.
   if (allText && (existing === undefined || typeof existing === 'string')) {
     const joined = [
-      ((existing ?? '') as string).trim(),
+      (existing ?? '').trim(),
       ...blocks.map(b => (b as TextBlockParam).text.trim()),
     ]
       .filter(Boolean)

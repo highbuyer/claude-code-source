@@ -1,5 +1,4 @@
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import { logEvent } from 'src/services/analytics/index.js'
 import type { AnalyticsMetadata_I_VERIFIED_THIS_IS_NOT_CODE_OR_FILEPATHS } from 'src/services/analytics/metadata.js'
 import { type Command, getCommandName, isCommandEnabled } from '../commands.js'

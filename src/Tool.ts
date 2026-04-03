@@ -6,8 +6,7 @@ import type {
   ElicitRequestURLParams,
   ElicitResult,
 } from '@modelcontextprotocol/sdk/types.js'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import type { z } from 'zod/v4'
 import type { Command } from './commands.js'
 import type { CanUseToolFn } from './hooks/useCanUseTool.js'

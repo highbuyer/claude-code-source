@@ -2209,7 +2209,7 @@ async function* executeHooks({
             hookName,
             toolUseID,
             hookEvent,
-            content: `Failed to prepare hook input: ${errorMessage((jsonInputRes as any).error)}`,
+            content: `Failed to prepare hook input: ${errorMessage(jsonInputRes.error)}`,
             command: hookCommand,
             durationMs: Date.now() - hookStartMs,
           }),
@@ -2412,7 +2412,7 @@ async function* executeHooks({
 
         if (httpJson) {
           const processed = processHookJSONOutput({
-            json: httpJson as any,
+            json: httpJson,
             command: hook.url,
             hookName,
             toolUseID,
@@ -2421,7 +2421,7 @@ async function* executeHooks({
             stdout: httpResult.body,
             stderr: '',
             exitCode: httpResult.statusCode,
-          }) as any
+          })
           emitHookResponse({
             hookId,
             hookName,

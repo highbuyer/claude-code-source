@@ -29,10 +29,6 @@ import { isModelAllowed } from './modelAllowlist.js'
 import { type ModelAlias, isModelAlias } from './aliases.js'
 import { capitalize } from '../stringUtils.js'
 
-// Stubs for ant-only functions (dead-code-eliminated but still type-checked)
-declare function resolveAntModel(model: string): any
-declare function getAntModelOverrideConfig(): { defaultModel?: string; defaultSystemPromptSuffix?: string } | undefined
-
 export type ModelShortName = string
 export type ModelName = string
 export type ModelSetting = ModelName | ModelAlias | null

@@ -1,8 +1,6 @@
 import { c as _c } from "react/compiler-runtime";
 import type { ContentBlockParam, TextBlockParam } from '@anthropic-ai/sdk/resources/index.mjs';
-import { randomUUID } from 'crypto';
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string;
+import { randomUUID, type UUID } from 'crypto';
 import figures from 'figures';
 import * as React from 'react';
 import { useCallback, useEffect, useMemo, useState } from 'react';

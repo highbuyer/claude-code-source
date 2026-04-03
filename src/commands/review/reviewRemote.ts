@@ -136,8 +136,7 @@ export async function launchRemoteReview(
   // consume at session creation routes billing: first N zero-rate, then
   // anthropic:cccr org-service-key (overage-only).
   if (!eligibility.eligible) {
-    const fail = eligibility as Extract<typeof eligibility, { eligible: false }>
-    const blockers = fail.errors.filter(
+    const blockers = eligibility.errors.filter(
       e => e.type !== 'no_remote_environment',
     )
     if (blockers.length > 0) {

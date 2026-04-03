@@ -19,9 +19,7 @@ type Props = {
   context: LocalJSXCommandContext;
   defaultTab: 'Status' | 'Config' | 'Usage' | 'Gates';
 };
-// Stub for ant-only component (dead-code-eliminated but still type-checked)
-declare const Gates: any
-export function Settings(t0: Props) {
+export function Settings(t0) {
   const $ = _c(25);
   const {
     onClose,

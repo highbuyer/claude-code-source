@@ -7,9 +7,6 @@ import { get3PModelCapabilityOverride } from './model/modelSupportOverrides.js'
 import { getAPIProvider } from './model/providers.js'
 import { getSettingsWithErrors } from './settings/settings.js'
 
-// Stub for ant-only function (dead-code-eliminated but still type-checked)
-declare function resolveAntModel(model: string): any
-
 export type ThinkingConfig =
   | { type: 'adaptive' }
   | { type: 'enabled'; budgetTokens: number }

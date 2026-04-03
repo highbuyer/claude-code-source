@@ -546,90 +546,6 @@ export const SDKControlElicitationResponseSchema = lazySchema(() =>
 
 
 // ============================================================================
-// Additional Control Request Types (used by print.ts and bridge)
-// ============================================================================
-
-export const SDKControlEndSessionRequestSchema = lazySchema(() =>
-  z.object({
-    subtype: z.literal('end_session'),
-    reason: z.string().optional(),
-  }).describe('Ends the current session.'),
-)
-
-export const SDKControlChannelEnableRequestSchema = lazySchema(() =>
-  z.object({
-    subtype: z.literal('channel_enable'),
-    serverName: z.string(),
-    enabled: z.boolean(),
-  }).describe('Enables or disables a channel.'),
-)
-
-export const SDKControlMcpAuthenticateRequestSchema = lazySchema(() =>
-  z.object({
-    subtype: z.literal('mcp_authenticate'),
-    serverName: z.string(),
-  }).describe('Initiates MCP server authentication.'),
-)
-
-export const SDKControlMcpOauthCallbackUrlRequestSchema = lazySchema(() =>
-  z.object({
-    subtype: z.literal('mcp_oauth_callback_url'),
-    serverName: z.string(),
-    callbackUrl: z.string(),
-  }).describe('Provides OAuth callback URL for MCP authentication.'),
-)
-
-export const SDKControlClaudeAuthenticateRequestSchema = lazySchema(() =>
-  z.object({
-    subtype: z.literal('claude_authenticate'),
-    loginWithClaudeAi: z.boolean().optional(),
-  }).describe('Initiates Claude authentication.'),
-)
-
-export const SDKControlClaudeOauthCallbackRequestSchema = lazySchema(() =>
-  z.object({
-    subtype: z.literal('claude_oauth_callback'),
-    authorizationCode: z.string(),
-    state: z.string(),
-  }).describe('Handles Claude OAuth callback.'),
-)
-
-export const SDKControlClaudeOauthWaitForCompletionRequestSchema = lazySchema(() =>
-  z.object({
-    subtype: z.literal('claude_oauth_wait_for_completion'),
-  }).describe('Waits for Claude OAuth completion.'),
-)
-
-export const SDKControlMcpClearAuthRequestSchema = lazySchema(() =>
-  z.object({
-    subtype: z.literal('mcp_clear_auth'),
-    serverName: z.string(),
-  }).describe('Clears MCP server authentication.'),
-)
-
-export const SDKControlGenerateSessionTitleRequestSchema = lazySchema(() =>
-  z.object({
-    subtype: z.literal('generate_session_title'),
-    description: z.string().optional(),
-    persist: z.boolean().optional(),
-  }).describe('Generates a title for the current session.'),
-)
-
-export const SDKControlSideQuestionRequestSchema = lazySchema(() =>
-  z.object({
-    subtype: z.literal('side_question'),
-    question: z.string(),
-  }).describe('Asks a side question outside the main conversation.'),
-)
-
-export const SDKControlRemoteControlRequestSchema = lazySchema(() =>
-  z.object({
-    subtype: z.literal('remote_control'),
-    enabled: z.boolean(),
-  }).describe('Enables or disables remote control.'),
-)
-
-// ============================================================================
 // Control Request/Response Wrappers
 // ============================================================================
 
@@ -656,17 +572,6 @@ export const SDKControlRequestInnerSchema = lazySchema(() =>
     SDKControlApplyFlagSettingsRequestSchema(),
     SDKControlGetSettingsRequestSchema(),
     SDKControlElicitationRequestSchema(),
-    SDKControlEndSessionRequestSchema(),
-    SDKControlChannelEnableRequestSchema(),
-    SDKControlMcpAuthenticateRequestSchema(),
-    SDKControlMcpOauthCallbackUrlRequestSchema(),
-    SDKControlClaudeAuthenticateRequestSchema(),
-    SDKControlClaudeOauthCallbackRequestSchema(),
-    SDKControlClaudeOauthWaitForCompletionRequestSchema(),
-    SDKControlMcpClearAuthRequestSchema(),
-    SDKControlGenerateSessionTitleRequestSchema(),
-    SDKControlSideQuestionRequestSchema(),
-    SDKControlRemoteControlRequestSchema(),
   ]),
 )
 

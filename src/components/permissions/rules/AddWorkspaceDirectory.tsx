@@ -134,7 +134,7 @@ function DirectoryInput(t0) {
   return t5;
 }
 function _temp() {}
-export function AddWorkspaceDirectory(t0: Props) {
+export function AddWorkspaceDirectory(t0) {
   const $ = _c(34);
   const {
     onAddDirectory,

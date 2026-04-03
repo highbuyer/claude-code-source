@@ -304,10 +304,10 @@ function recoverPlanFromMessages(log: LogOption): string | null {
     if (msg.type === 'user') {
       const userMsg = msg as UserMessage
       if (
-        typeof (userMsg as any).planContent === 'string' &&
-        (userMsg as any).planContent.length > 0
+        typeof userMsg.planContent === 'string' &&
+        userMsg.planContent.length > 0
       ) {
-        return (userMsg as any).planContent
+        return userMsg.planContent
       }
     }
 

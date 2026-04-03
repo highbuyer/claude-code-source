@@ -191,7 +191,7 @@ async function executeForkedSlashCommand(command: CommandBase & PromptCommand, a
   let toolUseCounter = 0;
 
   // Helper to create a progress message from an agent message
-  const createProgressMessage = (message: any): ProgressMessage<AgentProgress> => {
+  const createProgressMessage = (message: AssistantMessage | NormalizedUserMessage): ProgressMessage<AgentProgress> => {
     toolUseCounter++;
     return {
       type: 'progress',

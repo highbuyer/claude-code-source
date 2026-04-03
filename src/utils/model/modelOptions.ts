@@ -33,9 +33,6 @@ import {
 import { has1mContext } from '../context.js'
 import { getGlobalConfig } from '../config.js'
 
-// Stub for ant-only function (dead-code-eliminated but still type-checked)
-declare function getAntModels(): Array<{ alias: string; label: string; description?: string; model: string }>
-
 // @[MODEL LAUNCH]: Update all the available and default model option strings below.
 
 export type ModelOption = {

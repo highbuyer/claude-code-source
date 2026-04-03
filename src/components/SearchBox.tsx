@@ -11,7 +11,7 @@ type Props = {
   cursorOffset?: number;
   borderless?: boolean;
 };
-export function SearchBox(t0: Props) {
+export function SearchBox(t0) {
   const $ = _c(17);
   const {
     query,

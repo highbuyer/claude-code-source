@@ -8,9 +8,8 @@
  * 4. Isolate mutable state to prevent interference with the main agent loop
  */
 
+import type { UUID } from 'crypto'
 import { randomUUID } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
 import type { PromptCommand } from '../commands.js'
 import type { QuerySource } from '../constants/querySource.js'
 import type { CanUseToolFn } from '../hooks/useCanUseTool.js'

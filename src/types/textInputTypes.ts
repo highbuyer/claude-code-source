@@ -1,6 +1,5 @@
 import type { ContentBlockParam } from '@anthropic-ai/sdk/resources/messages.mjs'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import type React from 'react'
 import type { PermissionResult } from '../entrypoints/agentSdkTypes.js'
 import type { Key } from '../ink.js'

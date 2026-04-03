@@ -25,7 +25,7 @@ const PREVIEW_LINES = 20;
  * Quick Open dialog (ctrl+shift+p / cmd+shift+p).
  * Fuzzy file finder with a syntax-highlighted preview of the focused file.
  */
-export function QuickOpenDialog(t0: Props) {
+export function QuickOpenDialog(t0) {
   const $ = _c(35);
   const {
     onDone,

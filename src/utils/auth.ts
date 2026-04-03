@@ -1292,7 +1292,7 @@ export const getClaudeAIOAuthTokens = memoize((): OAuthTokens | null => {
       return null
     }
 
-    return oauthData as any
+    return oauthData
   } catch (error) {
     logError(error)
     return null
@@ -1414,7 +1414,7 @@ export async function getClaudeAIOAuthTokensAsync(): Promise<OAuthTokens | null>
     if (!oauthData?.accessToken) {
       return null
     }
-    return oauthData as any
+    return oauthData
   } catch (error) {
     logError(error)
     return null

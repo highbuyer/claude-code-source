@@ -1,7 +1,6 @@
 import { feature } from 'bun:bundle'
+import type { UUID } from 'crypto'
 import { randomUUID } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
 import uniqBy from 'lodash-es/uniqBy.js'
 import { logForDebugging } from 'src/utils/debug.js'
 import { getProjectRoot, getSessionId } from '../../bootstrap/state.js'
@@ -743,7 +742,7 @@ export async function* runAgent({
   }).catch(_err => logForDebugging(`Failed to write agent metadata: ${_err}`))
 
   // Track the last recorded message UUID for parent chain continuity
-  let lastRecordedUuid: UUID | string | null = initialMessages.at(-1)?.uuid ?? null
+  let lastRecordedUuid: UUID | null = initialMessages.at(-1)?.uuid ?? null
 
   try {
     for await (const message of query({
@@ -761,7 +760,7 @@ export async function* runAgent({
       // so TTFT/OTPS update during subagent execution.
       if (
         message.type === 'stream_event' &&
-        (message.event as any).type === 'message_start' &&
+        message.event.type === 'message_start' &&
         message.ttftMs != null
       ) {
         toolUseContext.pushApiMetricsEntry?.(message.ttftMs)

@@ -5,9 +5,6 @@ import { isEnvTruthy } from './envUtils.js'
 import { getCanonicalName } from './model/model.js'
 import { getModelCapability } from './model/modelCapabilities.js'
 
-// Stub for ant-only function (dead-code-eliminated but still type-checked)
-declare function resolveAntModel(model: string): { contextWindow?: number; defaultMaxTokens?: number; upperMaxTokensLimit?: number } | undefined
-
 // Model context window size (200k tokens for all models right now)
 export const MODEL_CONTEXT_WINDOW_DEFAULT = 200_000
 

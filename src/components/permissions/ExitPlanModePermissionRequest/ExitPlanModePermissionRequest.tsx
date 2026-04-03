@@ -1,6 +1,5 @@
 import { feature } from 'bun:bundle';
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string;
+import type { UUID } from 'crypto';
 import figures from 'figures';
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useNotifications } from 'src/context/notifications.js';

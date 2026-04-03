@@ -212,7 +212,7 @@ export function useOptionalKeybindingContext() {
  * }
  * ```
  */
-export function useRegisterKeybindingContext(context: any, t0?: any) {
+export function useRegisterKeybindingContext(context, t0) {
   const $ = _c(5);
   const isActive = t0 === undefined ? true : t0;
   const keybindingContext = useOptionalKeybindingContext();

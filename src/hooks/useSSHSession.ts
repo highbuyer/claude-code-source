@@ -202,7 +202,7 @@ export function useSSHSession({
       },
     })
 
-    managerRef.current = manager as any
+    managerRef.current = manager
     manager.connect()
 
     return () => {
@@ -218,13 +218,13 @@ export function useSSHSession({
       const m = managerRef.current
       if (!m) return false
       setIsLoading(true)
-      return (m as any).sendMessage(content)
+      return m.sendMessage(content)
     },
     [setIsLoading],
   )
 
   const cancelRequest = useCallback(() => {
-    ;(managerRef.current as any)?.sendInterrupt()
+    managerRef.current?.sendInterrupt()
     setIsLoading(false)
   }, [setIsLoading])
 

@@ -1,7 +1,5 @@
 import type { BetaContentBlock } from '@anthropic-ai/sdk/resources/beta/messages/messages.mjs'
-import { createHash, randomUUID } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import { createHash, randomUUID, type UUID } from 'crypto'
 import { mkdir, readFile, writeFile } from 'fs/promises'
 import isPlainObject from 'lodash-es/isPlainObject.js'
 import mapValues from 'lodash-es/mapValues.js'

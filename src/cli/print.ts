@@ -295,9 +295,8 @@ import {
   type ChannelEntry,
 } from 'src/bootstrap/state.js'
 import { runWithWorkload, WORKLOAD_CRON } from 'src/utils/workloadContext.js'
+import type { UUID } from 'crypto'
 import { randomUUID } from 'crypto'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
 import type { ContentBlockParam } from '@anthropic-ai/sdk/resources/messages.mjs'
 import type { AppState } from 'src/state/AppStateStore.js'
 import {
@@ -393,10 +392,10 @@ Shut down your team and prepare your final response for the user.`
 
 // Track message UUIDs received during the current session runtime
 const MAX_RECEIVED_UUIDS = 10_000
-const receivedMessageUuids = new Set<UUID | string>()
-const receivedMessageUuidsOrder: (UUID | string)[] = []
+const receivedMessageUuids = new Set<UUID>()
+const receivedMessageUuidsOrder: UUID[] = []
 
-function trackReceivedMessageUuid(uuid: UUID | string): boolean {
+function trackReceivedMessageUuid(uuid: UUID): boolean {
   if (receivedMessageUuids.has(uuid)) {
     return false // duplicate
   }
@@ -1649,8 +1648,8 @@ function runHeadlessStreaming(
       ) {
         config = {
           type: 'stdio' as const,
-          command: (connection.config as any).command,
-          args: (connection.config as any).args,
+          command: connection.config.command,
+          args: connection.config.args,
         }
       }
       const serverTools =
@@ -1803,12 +1802,12 @@ function runHeadlessStreaming(
         type === 'http' ||
         type === 'sdk'
       ) {
-        supportedConfigs[name] = config as McpServerConfigForProcessTransport
+        supportedConfigs[name] = config
       }
     }
     for (const [name, config] of Object.entries(sdkMcpConfigs)) {
       if (config.type === 'sdk' && !(name in supportedConfigs)) {
-        supportedConfigs[name] = config as McpServerConfigForProcessTransport
+        supportedConfigs[name] = config
       }
     }
     const { response, sdkServersChanged } =
@@ -2990,7 +2989,7 @@ function runHeadlessStreaming(
             sdkClient.type === 'connected' &&
             sdkClient.client?.transport?.onmessage
           ) {
-            sdkClient.client.transport.onmessage(mcpRequest.message as any)
+            sdkClient.client.transport.onmessage(mcpRequest.message)
           }
           sendControlResponseSuccess(message)
         } else if (message.request.subtype === 'rewind_files') {
@@ -4104,8 +4103,8 @@ function runHeadlessStreaming(
         mode: 'prompt' as const,
         // file_attachments rides the protobuf catchall from the web composer.
         // Same-ref no-op when absent (no 'file_attachments' key).
-        value: await resolveAndPrepend(message, (message.message as any).content),
-        uuid: message.uuid as UUID,
+        value: await resolveAndPrepend(message, message.message.content),
+        uuid: message.uuid,
         priority: message.priority,
       })
       // Increment prompt count for attribution tracking and save snapshot

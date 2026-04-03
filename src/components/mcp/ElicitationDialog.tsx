@@ -109,7 +109,7 @@ function formatDateDisplay(isoValue: string, schema: PrimitiveSchemaDefinition):
     return isoValue;
   }
 }
-export function ElicitationDialog(t0: Props) {
+export function ElicitationDialog(t0) {
   const $ = _c(7);
   const {
     event,

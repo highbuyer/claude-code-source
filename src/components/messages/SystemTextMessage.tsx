@@ -27,15 +27,13 @@ import { useAppStateStore } from '../../state/AppState.js';
 import { isBackgroundTask, type TaskState } from '../../tasks/types.js';
 import { getPillLabel } from '../../tasks/pillLabel.js';
 import { useSelectedMessageBg } from '../messageActions.js';
-// Stub for ant-only constant (dead-code-eliminated but still type-checked)
-declare const HOOK_TIMING_DISPLAY_THRESHOLD_MS: number
 type Props = {
   message: SystemMessage;
   addMargin: boolean;
   verbose: boolean;
   isTranscriptMode?: boolean;
 };
-export function SystemTextMessage(t0: Props) {
+export function SystemTextMessage(t0) {
   const $ = _c(51);
   const {
     message,
@@ -200,7 +198,7 @@ export function SystemTextMessage(t0: Props) {
     return t6;
   }
   const isStopHookSummary = message.subtype === "stop_hook_summary";
-  if (!isStopHookSummary && !verbose && (message as any).level === "info") {
+  if (!isStopHookSummary && !verbose && message.level === "info") {
     return null;
   }
   if (message.subtype === "api_error") {
@@ -229,13 +227,13 @@ export function SystemTextMessage(t0: Props) {
     }
     return t1;
   }
-  const content = (message as any).content;
+  const content = message.content;
   if (typeof content !== "string") {
     return null;
   }
-  const t1 = (message as any).level !== "info";
-  const t2 = (message as any).level === "warning" ? "warning" : undefined;
-  const t3 = (message as any).level === "info";
+  const t1 = message.level !== "info";
+  const t2 = message.level === "warning" ? "warning" : undefined;
+  const t3 = message.level === "info";
   let t4;
   if ($[45] !== addMargin || $[46] !== content || $[47] !== t1 || $[48] !== t2 || $[49] !== t3) {
     t4 = <Box flexDirection="row" width="100%"><SystemTextMessageInner content={content} addMargin={addMargin} dot={t1} color={t2} dimColor={t3} /></Box>;

@@ -334,7 +334,7 @@ export function BrowseMarketplace({
         failureCount++;
         newFailedPlugins.push({
           name: plugin_1.entry.name,
-          reason: (result as any).error
+          reason: result.error
         });
       }
     }
@@ -397,7 +397,7 @@ export function BrowseMarketplace({
       });
     } else {
       setIsInstalling(false);
-      setInstallError((result_0 as any).error);
+      setInstallError(result_0.error);
     }
   };
 

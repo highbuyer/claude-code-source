@@ -1,6 +1,5 @@
 import { feature } from 'bun:bundle'
-// Widen UUID to plain string to avoid template-literal mismatches
-type UUID = string
+import type { UUID } from 'crypto'
 import uniqBy from 'lodash-es/uniqBy.js'
 
 /* eslint-disable @typescript-eslint/no-require-imports */
@@ -28,8 +27,6 @@ import type {
   HookResultMessage,
   Message,
   PartialCompactDirection,
-  StreamEvent,
-  SystemAPIErrorMessage,
   SystemCompactBoundaryMessage,
   SystemMessage,
   UserMessage,
@@ -601,7 +598,7 @@ export async function compactConversation(
     const boundaryMarker = createCompactBoundaryMessage(
       isAutoCompact ? 'auto' : 'manual',
       preCompactTokenCount ?? 0,
-      messages.at(-1)?.uuid as UUID | undefined,
+      messages.at(-1)?.uuid,
     )
     // Carry loaded-tool state — the summary doesn't preserve tool_reference
     // blocks, so the post-compact schema filter needs this to keep sending
@@ -1009,12 +1006,11 @@ export async function partialCompactConversation(
 
     // Progress messages aren't loggable, so forkSessionImpl would null out
     // a logicalParentUuid pointing at one. Both directions skip them.
-    const lastPreCompactUuid = (
+    const lastPreCompactUuid =
       direction === 'up_to'
         ? allMessages.slice(0, pivotIndex).findLast(m => m.type !== 'progress')
             ?.uuid
         : messagesToKeep.at(-1)?.uuid
-    ) as UUID | undefined
     const boundaryMarker = createCompactBoundaryMessage(
       'manual',
       preCompactTokenCount ?? 0,
@@ -1079,11 +1075,10 @@ export async function partialCompactConversation(
     )
 
     // 'from': prefix-preserving → boundary; 'up_to': suffix → last summary
-    const anchorUuid = (
+    const anchorUuid =
       direction === 'up_to'
         ? (summaryMessages.at(-1)?.uuid ?? boundaryMarker.uuid)
         : boundaryMarker.uuid
-    ) as UUID
     return {
       boundaryMarker: annotateBoundaryWithPreservedSegment(
         boundaryMarker,
@@ -1333,7 +1328,7 @@ async function streamCompactSummary({
       let next = await streamIter.next()
 
       while (!next.done) {
-        const event = next.value as StreamEvent | AssistantMessage | SystemAPIErrorMessage
+        const event = next.value
 
         if (
           !hasStartedStreaming &&

@@ -94,7 +94,7 @@ function getMcpServerBuckets(tools: Tools): Array<{
     tools
   })).sort((a, b) => a.serverName.localeCompare(b.serverName));
 }
-export function ToolSelector(t0: Props) {
+export function ToolSelector(t0) {
   const $ = _c(69);
   const {
     tools,
@@ -251,7 +251,7 @@ export function ToolSelector(t0: Props) {
   let t9;
   if ($[22] !== selectedSet) {
     t9 = bucketTools => {
-      const selected = count(bucketTools, (t_5: any) => selectedSet.has(t_5.name));
+      const selected = count(bucketTools, t_5 => selectedSet.has(t_5.name));
       const needsSelection = selected < bucketTools.length;
       return () => {
         const toolNames_1 = bucketTools.map(_temp4);
@@ -321,7 +321,7 @@ export function ToolSelector(t0: Props) {
       if (bucketTools_0.length === 0) {
         return;
       }
-      const selected_0 = count(bucketTools_0, (t_8: any) => selectedSet.has(t_8.name));
+      const selected_0 = count(bucketTools_0, t_8 => selectedSet.has(t_8.name));
       const isFullySelected = selected_0 === bucketTools_0.length;
       navigableItems.push({
         id,

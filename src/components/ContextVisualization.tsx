@@ -102,7 +102,7 @@ function groupBySource<T extends {
 interface Props {
   data: ContextData;
 }
-export function ContextVisualization(t0: Props) {
+export function ContextVisualization(t0) {
   const $ = _c(87);
   const {
     data

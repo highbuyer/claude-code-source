@@ -46,8 +46,6 @@ import { PrBadge } from '../PrBadge.js';
 /* eslint-disable @typescript-eslint/no-require-imports */
 const proactiveModule = feature('PROACTIVE') || feature('KAIROS') ? require('../../proactive/index.js') : null;
 /* eslint-enable @typescript-eslint/no-require-imports */
-// Stub for ant-only component (dead-code-eliminated but still type-checked)
-declare const TungstenPill: any
 const NO_OP_SUBSCRIBE = (_cb: () => void) => () => {};
 const NULL = () => null;
 const MAX_VOICE_HINT_SHOWS = 3;
@@ -126,7 +124,7 @@ function ProactiveCountdown() {
   }
   return t4;
 }
-export function PromptInputFooterLeftSide(t0: Props) {
+export function PromptInputFooterLeftSide(t0) {
   const $ = _c(27);
   const {
     exitMessage,

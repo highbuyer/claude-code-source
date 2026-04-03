@@ -1,6 +1,5 @@
 import { feature } from 'bun:bundle'
-// Widen UUID to plain string to avoid template-literal mismatches from crypto.UUID
-type UUID = string
+import type { UUID } from 'crypto'
 import type { Dirent } from 'fs'
 // Sync fs primitives for readFileTailSync — separate from fs/promises
 // imports above. Named (not wildcard) per CLAUDE.md style; no collisions
@@ -1452,7 +1451,7 @@ export async function recordTranscript(
 export async function recordSidechainTranscript(
   messages: Message[],
   agentId?: string,
-  startingParentUuid?: UUID | string | null,
+  startingParentUuid?: UUID | null,
 ) {
   await getProject().insertMessageChain(
     cleanMessagesForLogging(messages),
@@ -3860,8 +3859,8 @@ export function clearSessionMessagesCache(): void {
  * Check if a message UUID exists in the session storage
  */
 export async function doesMessageExistInSession(
-  sessionId: UUID | string,
-  messageUuid: UUID | string,
+  sessionId: UUID,
+  messageUuid: UUID,
 ): Promise<boolean> {
   const messageSet = await getSessionMessages(sessionId)
   return messageSet.has(messageUuid)
